@@ -14,52 +14,52 @@
 {user.removerole; Memes; {args}}
 {user.removerole; Server Elitist; {args}}
 {user.removerole; Head of Maths; {args}}
+{user.removerole; Head of Physics; {args}}
+{user.removerole; Head of Chemistry; {args}}
+{user.removerole; Head of Biology; {args}}
+{user.removerole; Head of Computer Science; {args}}
+{user.removerole; Head of Business; {args}}
+{user.removerole; Head of English Language; {args}}
+{user.removerole; Head of English Literature; {args}}
+{user.removerole; Head of Geography; {args}}
+{user.removerole; Head of History; {args}}
+{user.removerole; Head of Music; {args}}
+{user.removerole; Head of Religious Studies; {args}}
+{user.removerole; Head of Languages; {args}}
+{user.removerole; Head of Art; {args}}
 {user.removerole; Maths Helper; {args}}
 {user.removerole; Maths GCSE Helper; {args}}
 {user.removerole; Further Maths GCSE Helper; {args}}
 {user.removerole; Further Maths Helper; {args}}
-{user.removerole; Head of Physics; {args}}
 {user.removerole; Physics Helper; {args}}
 {user.removerole; Physics GCSE Helper; {args}}
-{user.removerole; Head of Chemistry; {args}}
 {user.removerole; Chemistry Helper; {args}}
 {user.removerole; Chemistry GCSE Helper; {args}}
-{user.removerole; Head of Biology; {args}}
 {user.removerole; Biology Helper; {args}}
 {user.removerole; Biology GCSE Helper; {args}}
-{user.removerole; Head of Computer Science; {args}}
 {user.removerole; Computer Science Helper; {args}}
 {user.removerole; Computer Science GCSE Helper; {args}}
-{user.removerole; Head of Business; {args}}
 {user.removerole; Business Helper; {args}}
 {user.removerole; Business GCSE Helper; {args}}
-{user.removerole; Head of English Language; {args}}
 {user.removerole; English Language Helper; {args}}
-{user.removerole; English Langauge GCSE Helper; {args}}
-{user.removerole; Head of English Literature; {args}}
+{user.removerole; English Language GCSE Helper; {args}}
 {user.removerole; English Literature GCSE Helper; {args}}
 {user.removerole; English Literature Helper; {args}}
-{user.removerole; Head of Geography; {args}}
 {user.removerole; Geography Helper; {args}}
 {user.removerole; Geography GCSE Helper; {args}}
-{user.removerole; Head of History; {args}}
 {user.removerole; History GCSE Helper; {args}}
 {user.removerole; History Helper; {args}}
-{user.removerole; Head of Music; {args}}
 {user.removerole; Music GCSE Helper; {args}}
 {user.removerole; Music Helper; {args}}
 {user.removerole; Politics Helper; {args}}
-{user.removerole; Head of Religious Studies; {args}}
 {user.removerole; Religious Studies Helper; {args}}
 {user.removerole; Religious Studies GCSE Helper; {args}}
-{user.removerole; Head of Languages; {args}}
 {user.removerole; Spanish Helper; {args}}
 {user.removerole; Spanish GCSE Helper; {args}}
 {user.removerole; German Helper; {args}}
 {user.removerole; German GCSE Helper; {args}}
 {user.removerole; French Helper; {args}}
 {user.removerole; French GCSE Helper; {args}}
-{user.removerole; Head of Art; {args}}
 {user.removerole; Art Helper; {args}}
 {user.removerole; Art GCSE Helper; {args}}
 {user.removerole; bot-chat helper; {args}}
@@ -73,7 +73,6 @@
 {user.removerole; Postgraduate; {args}}
 {user.removerole; Server Elitist; {args}}
 {user.removerole; Memes; {args}}
-{user.removerole; Member; {args}}
 {user.addrole; No Roles; {args}}
 {set; endtime; {math; ({replace; {replace; {replace; {replace; {utils.time; true}; {utils.time; false},;}; PM;}; AM;}; :.*$;} * 60) + {replace; {replace; {replace; {replace; {utils.time; true}; {utils.time; false},;}; PM;}; AM;}; .*?:;}}}
 {set; timetaken; {math; {get; endtime} - {get; starttime}}}
