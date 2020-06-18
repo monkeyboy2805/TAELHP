@@ -9,7 +9,6 @@
 {user.removerole; A-level Access; {args}}
 {user.removerole; GCSE Access; {args}}
 {user.removerole; Revising; {args}}
-{user.removerole; Member; {args}}
 {user.removerole; NSFW; {args}}
 {user.removerole; Memes; {args}}
 {user.removerole; Server Elitist; {args}}
@@ -73,6 +72,12 @@
 {user.removerole; Postgraduate; {args}}
 {user.removerole; Server Elitist; {args}}
 {user.removerole; Memes; {args}}
+{user.removerole; PC Talk; {args}}
+{user.removerole; QOTD; {args}}
+{user.removerole; FOTD; {args}}
+{user.removerole; Deals and Discounts; {args}}
+{user.removerole; Debate; {args}}
+{user.removerole; Politics; {args}}
 {user.addrole; No Roles; {args}}
 {set; endtime; {math; ({replace; {replace; {replace; {replace; {utils.time; true}; {utils.time; false},;}; PM;}; AM;}; :.*$;} * 60) + {replace; {replace; {replace; {replace; {utils.time; true}; {utils.time; false},;}; PM;}; AM;}; .*?:;}}}
 {set; timetaken; {math; {get; endtime} - {get; starttime}}}
