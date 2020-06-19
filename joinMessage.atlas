@@ -1,6 +1,0 @@
-{user.mention} has joined {guild.name}. Make sure to give them a warm welcome!
-Thanks {user.mention} for choosing {guild.name}. You are the {guild.memberCount}th member.
-There are {role.memberCount; Moderator} staff available to help you if you have any difficulties using the server.
-{channel.send; {user.mention} has joined {guild.name}. Make sure to give them a warm welcome!
-Thanks {user.mention} for choosing {guild.name}. You are the {guild.memberCount}th member.
-There are {role.memberCount; Moderator} staff available to help you if you have any difficulties using the server.; welcome-room}

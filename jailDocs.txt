@@ -1,4 +1,0 @@
-Trigger type: Command
-Trigger content: jail
-Required Permissions : Administrator
-Type: Reply (channel), Invocation channel

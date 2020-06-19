@@ -1,4 +1,0 @@
-Trigger type: Command
-Trigger content: permamute
-Required Permissions: Manage Roles
-Type: Reply (channel), Invocation channel

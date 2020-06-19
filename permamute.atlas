@@ -1,6 +1,0 @@
-{a!mute;{user.mention; {args;1}};5s | {args}}
-{a!unmute;{user.mention;{args;1}}}
-{a!purge; user; Atlas#2867; 2}
-{sleep; 5.5}
-{user.addrole; Muted; {args;1}}
-{user.mention; {args;1}} has been successfully permamuted

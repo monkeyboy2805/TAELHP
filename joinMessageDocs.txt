@@ -1,4 +1,0 @@
-Target Channel: #general
-Plugin: Gatekeeper
-Added: 18/06/2020
-Notes: The welcome message is propagated explicitly within the script to #welcome-room, and is sent to the target channel (#general intended)
