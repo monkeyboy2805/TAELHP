@@ -1,0 +1,30 @@
+{
+  "meta": "Exported from https://atlasbot.xyz",
+  "flags": {
+    "ttl": 0,
+    "cooldown": 0,
+    "enabled": true,
+    "silent": false,
+    "delete": false,
+    "quiet": false
+  },
+  "restrictions": {
+    "mode": "blacklist",
+    "roles": [],
+    "channels": [],
+    "permissions": []
+  },
+  "trigger": {
+    "type": "keyword",
+    "content": "-helper"
+  },
+  "content": [
+    {
+      "fallback": true,
+      "type": "channel",
+      "message": "{if; {replace; {message.content}; -helper .*$; -helper}; == ; -helper;\n{set; porterver; Powered by YinYang's Porter Atlas Project version 3.2.0BETA1}\n{set; success; a helper will be available shortly.}\n{set; subject; {channel.name}}\n{set; subject2; {replace; {get; subject}; gcse-;}}\n{set; subject2; {replace; {get; subject2}; a-level-}}\n{set; pingtext;}\n{set; avail; yes}\n{set; validtype; false}\n{set; nogenstr; WARNING: The role \"}\n{if;{length; {get;subject2}}; == ; {math; {length; {get;subject}} - 5}; {set; type; GCSE} {set; validtype; true}}\n{if;{length; {get;subject2}}; == ; {math; {length; {get;subject}} - 8}; {set; type; A-level} {set; validtype; true}}\n{if; {get;validtype}; == ; false; {set; avail; no}}\n{if; {get;type}; == ; GCSE; {set; unavail; 0}}\n{if; {get;type}; == ; A-level; {set; unavail; 1}}\n{if; {role.mention; Head of {get; subject2}}; == ;{l}role.mention-ERROR1-no-role-matching-your-search{r}; {set; unavail; {get; unavail}A}}\n{if; {role.mention; {get; subject2} Helper}; == ; {l}role.mention-ERROR1-no-role-matching-your-search{r}; {set; unavail; {get; unavail}B}}\n{set; GPING; 0}\n{if; {get;type}; == ; GCSE; {set; GPING; 1}}\n{if; {role.mention; {get; subject2} GCSE Helper}; == ; {l}role.mention-ERROR1-no-role-matching-your-search{r}; {set; GPING; {get; GPING}C}}\n{if; {get; GPING}; == ; 1C; {set; unavail; {get; unavail}C}}\n{if; {get; unavail}; == ; 0; {set; pingtext; {get; pingtext} {role.mention; Head of {get;subject2}} {role.mention; {get; subject2} Helper} {role.mention; {get; subject2} GCSE Helper}}}\n{if; {get; unavail}; ==; 0A; {set; pingtext; {get; pingtext} {role.mention; {get; subject2} Helper} {role.mention; {get; subject2} GCSE Helper}} {channel.send; {get; nogenstr} Head of {get;subject2}\" does not exist; #atlas-log}}\n{if; {get; unavail}; ==; 0B; {set;pingtext; {get;pingtext} {role.mention; Head of {get; subject2}} {role.mention; {get; subject2} GCSE Helper}} {channel.send; {get; nogenstr} {get;subject2} Helper\" does not exist; #atlas-log}}\n{if; {get; unavail}; == ; 0C; {set;pingtext; {get;pingtext} {role.mention; Head of {get;subject2}} {role.mention; {get;subject2} Helper}}{channel.send; {get; nogenstr} {get;subject2} GCSE Helper\" does not exist; #atlas-log}}\n{if; {get; unavail}; == ; 0AB; {set;pingtext; {get;pingtext} {role.mention; {get; subject2} GCSE Helper}} {channel.send; {get; nogenstr} Head of {get;subject2}\" does not exist; #atlas-log} {channel.send; {get; nogenstr} {get;subject2} Helper\" does not exist; #atlas-log}}\n{if; {get; unavail}; == ; 0BC; {set;pingtext; {get;pingtext} {role.mention; Head of {get; subject2}}} {channel.send; {get; nogenstr} {get;subject2} Helper\" does not exist; #atlas-log} {channel.send; {get; nogenstr} {get;subject2} GCSE Helper\" does not exist; #atlas-log}}\n{if; {get; unavail}; == ; 0ABC; {set; avail; no} {channel.send; {get; nogenstr} Head of {get;subject2}\" does not exist; #atlas-log} {channel.send; {get; nogenstr} {get;subject2} Helper\" does not exist; #atlas-log} {channel.send; {get; nogenstr} {get;subject2} GCSE Helper\" does not exist; #atlas-log}}\n{if; {get; unavail}; == ; 1; {set;pingtext; {get;pingtext} {role.mention; Head of {get; subject2}} {role.mention; {get; subject2} Helper}}}\n{if; {get; unavail}; == ; 1A; {set;pingtext; {get;pingtext} {role.mention; {get; subject2} Helper}} {channel.send; {get; nogenstr} Head of {get;subject2}\" does not exist; #atlas-log}}\n{if; {get; unavail}; ==; 1B; {set;pingtext; {get; pingtext} {role.mention; Head of {get; subject2}}}{channel.send; {get; nogenstr} {get;subject2} Helper\" does not exist; #atlas-log}}\n{if; {get; unavail}; == ; 1AB; {set; avail; no} {channel.send; {get; nogenstr} Head of {get;subject2}\" does not exist; #atlas-log} {channel.send; {get; nogenstr} {get;subject2} Helper\" does not exist; #atlas-log}}\n{if; {get; avail}; == ; yes; {get;pingtext} \n{user.mention} {get; success}}\n{if; {get; avail}; == ; no; {user.mention} Unfortunately there are no helper roles available for this channel}\n>>>{get; porterver}<<<\n{set; invokerchannelid; {channel.id}}\n{set; invokermessageid; {message.id}}\n{channel.send; {user.tag} called for {get;subject2} help in {get; subject} https://discord.com/channels/{guild.id}/{get; invokerchannelid}/{get; invokermessageid}; atlas-log}\n}",
+      "id": "5ee0b9748f44120026ac4c3d"
+    }
+  ],
+  "formatVersion": "1.2"
+}
