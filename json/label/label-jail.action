@@ -1,0 +1,32 @@
+{
+  "meta": "Exported from https://atlasbot.xyz",
+  "flags": {
+    "ttl": 0,
+    "cooldown": 0,
+    "enabled": true,
+    "silent": false,
+    "delete": false,
+    "quiet": false
+  },
+  "restrictions": {
+    "mode": "blacklist",
+    "roles": [],
+    "channels": [],
+    "permissions": [
+      "administrator"
+    ]
+  },
+  "trigger": {
+    "type": "label",
+    "content": "jail"
+  },
+  "content": [
+    {
+      "fallback": true,
+      "type": "channel",
+      "message": "{set; starttime; {math; ({replace; {replace; {replace; {replace; {utils.time; true}; {utils.time; false},;}; PM;}; AM;}; :.*$;} * 60) + {replace; {replace; {replace; {replace; {utils.time; true}; {utils.time; false},;}; PM;}; AM;}; .*?:;}}}\n{user.addrole; Jailed; {args}}\n{user.removerole; Bot; {args}}\n{user.removerole; Administrator; {args}}\n{user.removerole; Moderator; {args}}\n{user.removerole; Muted; {args}}\n{user.removerole; Watson Deposition Service; {args}}\n{user.removerole; Degree Access; {args}}\n{user.removerole; A-level Access; {args}}\n{user.removerole; GCSE Access; {args}}\n{user.removerole; Revising; {args}}\n{user.removerole; NSFW; {args}}\n{user.removerole; Memes; {args}}\n{user.removerole; Server Elitist; {args}}\n{user.removerole; Head of Maths; {args}}\n{user.removerole; Head of Physics; {args}}\n{user.removerole; Head of Chemistry; {args}}\n{user.removerole; Head of Biology; {args}}\n{user.removerole; Head of Computer Science; {args}}\n{user.removerole; Head of Business; {args}}\n{user.removerole; Head of English Language; {args}}\n{user.removerole; Head of English Literature; {args}}\n{user.removerole; Head of Geography; {args}}\n{user.removerole; Head of History; {args}}\n{user.removerole; Head of Music; {args}}\n{user.removerole; Head of Religious Studies; {args}}\n{user.removerole; Head of Languages; {args}}\n{user.removerole; Head of Art; {args}}\n{user.removerole; Maths Helper; {args}}\n{user.removerole; Maths GCSE Helper; {args}}\n{user.removerole; Further Maths GCSE Helper; {args}}\n{user.removerole; Further Maths Helper; {args}}\n{user.removerole; Physics Helper; {args}}\n{user.removerole; Physics GCSE Helper; {args}}\n{user.removerole; Chemistry Helper; {args}}\n{user.removerole; Chemistry GCSE Helper; {args}}\n{user.removerole; Biology Helper; {args}}\n{user.removerole; Biology GCSE Helper; {args}}\n{user.removerole; Computer Science Helper; {args}}\n{user.removerole; Computer Science GCSE Helper; {args}}\n{user.removerole; Business Helper; {args}}\n{user.removerole; Business GCSE Helper; {args}}\n{user.removerole; English Language Helper; {args}}\n{user.removerole; English Language GCSE Helper; {args}}\n{user.removerole; English Literature GCSE Helper; {args}}\n{user.removerole; English Literature Helper; {args}}\n{user.removerole; Geography Helper; {args}}\n{user.removerole; Geography GCSE Helper; {args}}\n{user.removerole; History GCSE Helper; {args}}\n{user.removerole; History Helper; {args}}\n{user.removerole; Music GCSE Helper; {args}}\n{user.removerole; Music Helper; {args}}\n{user.removerole; Politics Helper; {args}}\n{user.removerole; Religious Studies Helper; {args}}\n{user.removerole; Religious Studies GCSE Helper; {args}}\n{user.removerole; Spanish Helper; {args}}\n{user.removerole; Spanish GCSE Helper; {args}}\n{user.removerole; German Helper; {args}}\n{user.removerole; German GCSE Helper; {args}}\n{user.removerole; French Helper; {args}}\n{user.removerole; French GCSE Helper; {args}}\n{user.removerole; Art Helper; {args}}\n{user.removerole; Art GCSE Helper; {args}}\n{user.removerole; bot-chat helper; {args}}\n{user.removerole; Games Access; {args}}\n{user.removerole; Year 9; {args}}\n{user.removerole; Year 10; {args}}\n{user.removerole; Year 11; {args}}\n{user.removerole; Year 12; {args}}\n{user.removerole; Year 13; {args}}\n{user.removerole; Undergraduate; {args}}\n{user.removerole; Postgraduate; {args}}\n{user.removerole; Server Elitist; {args}}\n{user.removerole; Memes; {args}}\n{user.removerole; PC Talk; {args}}\n{user.removerole; QOTD; {args}}\n{user.removerole; FOTD; {args}}\n{user.removerole; Deals and Discounts; {args}}\n{user.removerole; Debate; {args}}\n{user.removerole; Politics; {args}}\n{user.addrole; No Roles; {args}}\n{set; endtime; {math; ({replace; {replace; {replace; {replace; {utils.time; true}; {utils.time; false},;}; PM;}; AM;}; :.*$;} * 60) + {replace; {replace; {replace; {replace; {utils.time; true}; {utils.time; false},;}; PM;}; AM;}; .*?:;}}}\n{set; timetaken; {math; {get; endtime} - {get; starttime}}}\n{args} has been jailed ({get; timetaken} < time taken < {math; {get; timetaken} + 1} minute(s))",
+      "id": "5ee90b51ea2c3e0026ebb716"
+    }
+  ],
+  "formatVersion": "1.2"
+}

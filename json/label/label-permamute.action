@@ -1,0 +1,32 @@
+{
+  "meta": "Exported from https://atlasbot.xyz",
+  "flags": {
+    "ttl": 0,
+    "cooldown": 0,
+    "enabled": true,
+    "silent": false,
+    "delete": false,
+    "quiet": false
+  },
+  "restrictions": {
+    "mode": "blacklist",
+    "roles": [],
+    "channels": [],
+    "permissions": [
+      "manageRoles"
+    ]
+  },
+  "trigger": {
+    "type": "label",
+    "content": "permamute"
+  },
+  "content": [
+    {
+      "fallback": true,
+      "type": "channel",
+      "message": "{a!mute;{user.mention; {args;1}};5s | {args}}\n{a!unmute;{user.mention;{args;1}}}\n{a!purge; user; Atlas#2867; 2}\n{sleep; 5.5}\n{user.addrole; Muted; {args;1}}\n{user.mention; {args;1}} has been successfully permamuted",
+      "id": "5ee3bd4f8f44120026acb381"
+    }
+  ],
+  "formatVersion": "1.2"
+}

@@ -1,0 +1,4 @@
+Trigger type: Keyword
+Trigger content: -helper
+Type: Reply (channel), Invocation channel
+Version: 3.2.0BETA1
