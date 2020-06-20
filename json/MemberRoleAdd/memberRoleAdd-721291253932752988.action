@@ -1,0 +1,31 @@
+{
+  "meta": "Exported from https://atlasbot.xyz",
+  "flags": {
+    "ttl": 0,
+    "cooldown": 0,
+    "enabled": true,
+    "silent": false,
+    "delete": false,
+    "quiet": false
+  },
+  "restrictions": {
+    "mode": "blacklist",
+    "roles": [],
+    "channels": [],
+    "permissions": []
+  },
+  "trigger": {
+    "type": "memberRoleAdd",
+    "content": "721291253932752988"
+  },
+  "content": [
+    {
+      "fallback": true,
+      "type": "channel",
+      "message": "{set; invokerRoles; {user.roles}}\n{set; allowedRole; false}\n{if; {replace; {get; invokerRoles}; .*?712686968592400446.*$; 712686968592400446}; == ; 712686968592400446; {set; allowedRole; true}}\n{if; {replace; {get; invokerRoles}; .*?713815103106973758.*$; 713815103106973758}; == ; 713815103106973758; {set; allowedRole; true}}\n{if; {replace; {get; invokerRoles}; .*?712670161093787679.*$; 712670161093787679}; == ; 712670161093787679; {set; allowedRole; false}}\n{if; {get; allowedRole}; == ; false; Sorry {user.mention} you are not allowed this role. Because of this, it has been removed from you. {user.removerole; 721291253932752988}}\n",
+      "channel": "712663334511706112",
+      "id": "5ee904c3ea2c3e0026ebb65b"
+    }
+  ],
+  "formatVersion": "1.2"
+}

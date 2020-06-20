@@ -1,0 +1,6 @@
+{set; invokerRoles; {user.roles}}
+{set; allowedRole; false}
+{if; {replace; {get; invokerRoles}; .*?712686968592400446.*$; 712686968592400446}; == ; 712686968592400446; {set; allowedRole; true}}
+{if; {replace; {get; invokerRoles}; .*?713815103106973758.*$; 713815103106973758}; == ; 713815103106973758; {set; allowedRole; true}}
+{if; {replace; {get; invokerRoles}; .*?712670161093787679.*$; 712670161093787679}; == ; 712670161093787679; {set; allowedRole; false}}
+{if; {get; allowedRole}; == ; false; Sorry {user.mention} you are not allowed this role. Because of this, it has been removed from you. {user.removerole; 721291253932752988}}
