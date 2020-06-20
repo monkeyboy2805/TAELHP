@@ -1,0 +1,31 @@
+{
+  "meta": "Exported from https://atlasbot.xyz",
+  "flags": {
+    "ttl": 0,
+    "cooldown": 0,
+    "enabled": true,
+    "silent": false,
+    "delete": false,
+    "quiet": false
+  },
+  "restrictions": {
+    "mode": "blacklist",
+    "roles": [],
+    "channels": [],
+    "permissions": []
+  },
+  "trigger": {
+    "type": "keyword",
+    "content": "-leaderboard"
+  },
+  "content": [
+    {
+      "fallback": true,
+      "type": "channel",
+      "message": "{if; {replace; {message.content}; .*?-leaderboard.*$; -leaderboard}; == ; -leaderboard; {user.mention} Here is the YAGPDB reputation leaderboard for {guild.name} https://yagpdb.xyz/public/712227741503848528/reputation/leaderboard}",
+      "channel": "712663334511706112",
+      "id": "5eee49d9a5257800265457cf"
+    }
+  ],
+  "formatVersion": "1.2"
+}
