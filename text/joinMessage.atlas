@@ -1,7 +1,7 @@
 {user.mention} has joined {guild.name}. Make sure to give them a warm welcome!
-Thanks {user.mention} for choosing {guild.name}. You are the {guild.memberCount}th member.
+Thanks {user.mention} for choosing {guild.name}. You are Member #{guild.memberCount}!
 There are {role.memberCount; Moderator} staff available to help you if you have any difficulties using the server.
 {channel.send; {user.mention} has joined {guild.name}. Make sure to give them a warm welcome!
-Thanks {user.mention} for choosing {guild.name}. You are the {guild.memberCount}th member.
+Thanks {user.mention} for choosing {guild.name}. You are Member #{guild.memberCount}!
 Have a look in {channel.mention; unlock-server} to assign a role to let you unlock the server.
 There are {role.memberCount; Moderator} staff available to help you if you have any difficulties using the server.; welcome-room}
