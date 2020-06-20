@@ -1,0 +1,32 @@
+{
+  "meta": "Exported from https://atlasbot.xyz",
+  "flags": {
+    "ttl": 0,
+    "cooldown": 0,
+    "enabled": true,
+    "silent": false,
+    "delete": false,
+    "quiet": false
+  },
+  "restrictions": {
+    "mode": "blacklist",
+    "roles": [],
+    "channels": [],
+    "permissions": [
+      "administrator"
+    ]
+  },
+  "trigger": {
+    "type": "label",
+    "content": "unjail"
+  },
+  "content": [
+    {
+      "fallback": true,
+      "type": "channel",
+      "message": "{user.removerole; Jailed; {args}}\n{args} has been unjailed",
+      "id": "5ee6996fea2c3e0026eb65be"
+    }
+  ],
+  "formatVersion": "1.2"
+}
