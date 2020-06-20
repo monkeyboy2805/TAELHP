@@ -1,0 +1,30 @@
+{
+  "meta": "Exported from https://atlasbot.xyz",
+  "flags": {
+    "ttl": 0,
+    "cooldown": 0,
+    "enabled": true,
+    "silent": false,
+    "delete": false,
+    "quiet": false
+  },
+  "restrictions": {
+    "mode": "blacklist",
+    "roles": [],
+    "channels": [],
+    "permissions": []
+  },
+  "trigger": {
+    "type": "keyword",
+    "content": "need to revise"
+  },
+  "content": [
+    {
+      "fallback": true,
+      "type": "channel",
+      "message": "{user.addrole; Revising}\nYour roles have been updated",
+      "id": "5ee630a3ea2c3e0026eb4cbe"
+    }
+  ],
+  "formatVersion": "1.2"
+}
