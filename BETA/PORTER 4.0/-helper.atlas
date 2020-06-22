@@ -1,5 +1,5 @@
 {if; {replace; {message.content}; -helper .*$; -helper}; == ; -helper;
-{set; porterver; Powered by YinYang's Porter Atlas Project version 4.0.0ALPHA3}
+{set; porterver; Powered by YinYang's Porter Atlas Project version 4.0.0ALPHA4}
 {set; success; a helper will be available shortly.}
 {set; subject; {channel.name}}
 {set; subject2; {replace; {get; subject}; gcse-;}}
@@ -24,6 +24,10 @@ HELLO
 {get; headex}}
 {if; {role.mention; {get; subject2} Helper}; == ; {l}role.mention-ERROR1-no-role-matching-your-search{r}; {set; unavail; {get; unavail}B}}
 {set; GPING; 0}
+{if; {replace; {get; unavail};.*?B.*$;B}; == ; B;
+{set; genericex; {replace; {perget; helperExceptions}; {get; subject2} Helper.*$;}}
+{set; genericex; {replace; {get; genericex}; .?£;}}
+{set; genericex; {replace; {get; genericex};<;}}}
 {if; {get;type}; == ; GCSE; {set; GPING; 1}}
 {if; {role.mention; {get; subject2} GCSE Helper}; == ; {l}role.mention-ERROR1-no-role-matching-your-search{r}; {set; GPING; {get; GPING}C}}
 {if; {get; GPING}; == ; 1C; {set; unavail; {get; unavail}C}}
