@@ -31,6 +31,10 @@ HELLO
 {if; {get;type}; == ; GCSE; {set; GPING; 1}}
 {if; {role.mention; {get; subject2} GCSE Helper}; == ; {l}role.mention-ERROR1-no-role-matching-your-search{r}; {set; GPING; {get; GPING}C}}
 {if; {get; GPING}; == ; 1C; {set; unavail; {get; unavail}C}}
+{if; {replace; {get; unavail};.*?C.*$;C}; == ; C;
+{set; gcseex; {replace; {perget; helperExceptions}; {get; subject2} GCSE Helper.*$;}}
+{set; gcseex; {replace; {get; gcseex}; .?£;}}
+{set; gcseex; {replace; {get; gcseex};<;}}}
 {if; {get; unavail}; == ; 0; {set; pingtext; {get; pingtext} {role.mention; Head of {get;subject2}} {role.mention; {get; subject2} Helper} {role.mention; {get; subject2} GCSE Helper}}}
 {if; {get; unavail}; ==; 0A; {set; pingtext; {get; pingtext} {role.mention; {get; subject2} Helper} {role.mention; {get; subject2} GCSE Helper}} {channel.send; {get; nogenstr} Head of {get;subject2}" does not exist; #atlas-log}}
 {if; {get; unavail}; ==; 0B; {set;pingtext; {get;pingtext} {role.mention; Head of {get; subject2}} {role.mention; {get; subject2} GCSE Helper}} {channel.send; {get; nogenstr} {get;subject2} Helper" does not exist; #atlas-log}}
