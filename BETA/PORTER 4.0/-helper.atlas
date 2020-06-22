@@ -18,13 +18,9 @@
 {if; {get;type}; == ; A-level; {set; unavail; 1}}
 {if; {role.mention; Head of {get; subject2}}; == ;{l}role.mention-ERROR1-no-role-matching-your-search{r}; {set; unavail; {get; unavail}A}}
 {if; {replace; {get; unavail};.*?A.*$;A}; == ; A;
-HELLO
-{perget; helperExceptions}
 {set; headex; {replace; {perget; helperExceptions}; Head of {get; subject2}.*$;}}
-{get; headex}
 {set; headex; {replace; {get; headex}; .*?£;}}
 {set; headex; {replace;{get; headex};<;}}
-{get; headex}
 {set; needD; true}}
 {if; {role.mention; {get; subject2} Helper}; == ; {l}role.mention-ERROR1-no-role-matching-your-search{r}; {set; unavail; {get; unavail}B}}
 {set; GPING; 0}
