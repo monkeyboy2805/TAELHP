@@ -46,6 +46,7 @@
 {if; {get; unavail}; == ; 0AB; {set;pingtext; {get;pingtext} {role.mention; {get; subject2} GCSE Helper}} {channel.send; {get; nogenstr} Head of {get;subject2}" does not exist; #atlas-log} {channel.send; {get; nogenstr} {get;subject2} Helper" does not exist; #atlas-log}}
 {if; {get; unavail}; == ; 0BC; {set;pingtext; {get;pingtext} {role.mention; Head of {get; subject2}}} {channel.send; {get; nogenstr} {get;subject2} Helper" does not exist; #atlas-log} {channel.send; {get; nogenstr} {get;subject2} GCSE Helper" does not exist; #atlas-log}}
 {if; {get; unavail}; == ; 0ABC; {set; avail; no} {channel.send; {get; nogenstr} Head of {get;subject2}" does not exist; #atlas-log} {channel.send; {get; nogenstr} {get;subject2} Helper" does not exist; #atlas-log} {channel.send; {get; nogenstr} {get;subject2} GCSE Helper" does not exist; #atlas-log}}
+{if; {get; unavail}; == ; 0AD; {set; pingtext; {get;pingtext} {role.mention; {get; headex}} {role.mention; {get; subject2} Helper} {role.mention; {get;subject2} GCSE Helper}}}
 {if; {get; unavail}; == ; 1; {set;pingtext; {get;pingtext} {role.mention; Head of {get; subject2}} {role.mention; {get; subject2} Helper}}}
 {if; {get; unavail}; == ; 1A; {set;pingtext; {get;pingtext} {role.mention; {get; subject2} Helper}} {channel.send; {get; nogenstr} Head of {get;subject2}" does not exist; #atlas-log}}
 {if; {get; unavail}; ==; 1B; {set;pingtext; {get; pingtext} {role.mention; Head of {get; subject2}}}{channel.send; {get; nogenstr} {get;subject2} Helper" does not exist; #atlas-log}}
