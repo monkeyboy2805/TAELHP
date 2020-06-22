@@ -1,5 +1,5 @@
 {if; {replace; {message.content}; -helper .*$; -helper}; == ; -helper;
-{set; porterver; Powered by YinYang's Porter Atlas Project version 4.0.0ALPHA4}
+{set; porterver; Powered by YinYang's Porter Atlas Project version 4.0.0ALPHA5}
 {set; success; a helper will be available shortly.}
 {set; subject; {channel.name}}
 {set; subject2; {replace; {get; subject}; gcse-;}}
@@ -7,6 +7,9 @@
 {set; pingtext;}
 {set; avail; yes}
 {set; validtype; false}
+{set; needD; false}
+{set; needE; false}
+{set; needF; false}
 {set; nogenstr; WARNING: The role "}
 {if;{length; {get;subject2}}; == ; {math; {length; {get;subject}} - 5}; {set; type; GCSE} {set; validtype; true}}
 {if;{length; {get;subject2}}; == ; {math; {length; {get;subject}} - 8}; {set; type; A-level} {set; validtype; true}}
@@ -21,13 +24,15 @@ HELLO
 {get; headex}
 {set; headex; {replace; {get; headex}; .*?£;}}
 {set; headex; {replace;{get; headex};<;}}
-{get; headex}}
+{get; headex}
+{set; needD; true}}
 {if; {role.mention; {get; subject2} Helper}; == ; {l}role.mention-ERROR1-no-role-matching-your-search{r}; {set; unavail; {get; unavail}B}}
 {set; GPING; 0}
 {if; {replace; {get; unavail};.*?B.*$;B}; == ; B;
 {set; genericex; {replace; {perget; helperExceptions}; {get; subject2} Helper.*$;}}
 {set; genericex; {replace; {get; genericex}; .?£;}}
-{set; genericex; {replace; {get; genericex};<;}}}
+{set; genericex; {replace; {get; genericex};<;}}
+{set; needE; true}}
 {if; {get;type}; == ; GCSE; {set; GPING; 1}}
 {if; {role.mention; {get; subject2} GCSE Helper}; == ; {l}role.mention-ERROR1-no-role-matching-your-search{r}; {set; GPING; {get; GPING}C}}
 {if; {get; GPING}; == ; 1C; {set; unavail; {get; unavail}C}}
@@ -35,6 +40,9 @@ HELLO
 {set; gcseex; {replace; {perget; helperExceptions}; {get; subject2} GCSE Helper.*$;}}
 {set; gcseex; {replace; {get; gcseex}; .?£;}}
 {set; gcseex; {replace; {get; gcseex};<;}}}
+{if; {get; needD}; == ; true; {set; unavail; {get;unavail}D}}
+{if; {get; needE}; == ; true; {set; unavail; {get;unavail}E}}
+{if; {get; needF}; == ; true; {set; unavail; {get;unavail}F}}
 {if; {get; unavail}; == ; 0; {set; pingtext; {get; pingtext} {role.mention; Head of {get;subject2}} {role.mention; {get; subject2} Helper} {role.mention; {get; subject2} GCSE Helper}}}
 {if; {get; unavail}; ==; 0A; {set; pingtext; {get; pingtext} {role.mention; {get; subject2} Helper} {role.mention; {get; subject2} GCSE Helper}} {channel.send; {get; nogenstr} Head of {get;subject2}" does not exist; #atlas-log}}
 {if; {get; unavail}; ==; 0B; {set;pingtext; {get;pingtext} {role.mention; Head of {get; subject2}} {role.mention; {get; subject2} GCSE Helper}} {channel.send; {get; nogenstr} {get;subject2} Helper" does not exist; #atlas-log}}
