@@ -1,5 +1,5 @@
 {if; {replace; {message.content}; -helper .*$; -helper}; == ; -helper;
-{set; porterver; Powered by YinYang's Porter Atlas Project version 4.0.0ALPHA6}
+{set; porterver; Powered by YinYang's Porter Atlas Project version 4.0.0ALPHA7}
 {set; success; a helper will be available shortly.}
 {set; subject; {channel.name}}
 {set; subject2; {replace; {get; subject}; gcse-;}}
@@ -55,8 +55,10 @@
 {if; {get; unavail}; == ; 0BCE; {set; pingtext; {get; pingtext} {role.mention; Head of {get;subject2}}{role.mention; {get; genericex}}} {channel.send; {get; nogenstr} {get;subject2} GCSE Helper" does not exist; #atlas-log}}
 {if; {get; unavail}; == ; 0BCF; {set; pingtext; {get; pingtext} {role.mention; Head of {get;subject2}}{role.mention; {get; gcseex}}}{channel.send; {get; nogenstr} {get;subject2} Helper" does not exist; #atlas-log}}
 {if; {get; unavail}; == ; 0ABCD; {set; pingtext; {get; pingtext} {role.mention; {get; headex}}} {channel.send; {get; nogenstr} {get;subject2} Helper" does not exist; #atlas-log}{channel.send; {get; nogenstr} {get;subject2} GCSE Helper" does not exist; #atlas-log}}
+{if; {get; unavail}; == ; 0ABCE; {set; pingtext; {get; pingtext} {role.mention; {get; genericex}}}{channel.send; {get; nogenstr} Head of {get;subject2}" does not exist; #atlas-log}{channel.send; {get; nogenstr} {get;subject2} GCSE Helper" does not exist; #atlas-log}}
 {if; {get; unavail}; == ; 0ABCF; {set; pingtext; {get; pingtext} {role.mention; {get; gcseex}}} {channel.send; {get; nogenstr} Head of {get;subject2}" does not exist; #atlas-log} {channel.send; {get; nogenstr} {get;subject2} Helper" does not exist; #atlas-log}}
 {if; {get; unavail}; == ; 0ABDE; {set; pingtext; {get; pingtext}{role.mention; {get; headex}}{role.mention; {get; genericex}}{role.mention; {get; subject2} GCSE Helper}}}
+{if; {get; unavail}; == ; 0ACDF; {set; pingtext; {get; pingtext}{role.mention; {get; headex}}{role.mention; {get; subject2} Helper}; {role.mention; {get; gcseex}}}}
 {if; {get; unavail}; == ; 1; {set;pingtext; {get;pingtext} {role.mention; Head of {get; subject2}} {role.mention; {get; subject2} Helper}}}
 {if; {get; unavail}; == ; 1A; {set;pingtext; {get;pingtext} {role.mention; {get; subject2} Helper}} {channel.send; {get; nogenstr} Head of {get;subject2}" does not exist; #atlas-log}}
 {if; {get; unavail}; ==; 1B; {set;pingtext; {get; pingtext} {role.mention; Head of {get; subject2}}}{channel.send; {get; nogenstr} {get;subject2} Helper" does not exist; #atlas-log}}
