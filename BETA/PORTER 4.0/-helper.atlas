@@ -65,7 +65,8 @@
 {if; {get; unavail}; == ; 0ABCDEF; {set; pingtext; {get; pingtext} {role.mention; {get; headex}}{role.mention; {get;genericex}}{role.mention; {get; gcseex}}}}
 {if; {get; unavail}; == ; 1; {set;pingtext; {get;pingtext} {role.mention; Head of {get; subject2}} {role.mention; {get; subject2} Helper}}}
 {if; {get; unavail}; == ; 1A; {set;pingtext; {get;pingtext} {role.mention; {get; subject2} Helper}} {channel.send; {get; nogenstr} Head of {get;subject2}" does not exist; #atlas-log}}
-{if; {get;p unavail}; == ; 1ABD; {set; pingtext; {get;pingtext} {role.mention; {get; headex}}}{channel.send; {get; nogenstr} {get;subject2} Helper" does not exist; #atlas-log}}
+{if; {get; unavail}; == ; 1ABD; {set; pingtext; {get;pingtext} {role.mention; {get; headex}}}{channel.send; {get; nogenstr} {get;subject2} Helper" does not exist; #atlas-log}}
+{if; {get; unavail}; == ; 1ABDE; {set; pingtext; {get; pingtext} {role.mention; {get; headex}} {role.mention; {get; genericex}}}}
 {if; {get; unavail}; ==; 1B; {set;pingtext; {get; pingtext} {role.mention; Head of {get; subject2}}}{channel.send; {get; nogenstr} {get;subject2} Helper" does not exist; #atlas-log}}
 {if; {get; unavail}; == ; 1AB; {set; avail; no} {channel.send; {get; nogenstr} Head of {get;subject2}" does not exist; #atlas-log} {channel.send; {get; nogenstr} {get;subject2} Helper" does not exist; #atlas-log}}
 {if; {get; avail}; == ; yes; {get;pingtext} 
