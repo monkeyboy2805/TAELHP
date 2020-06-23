@@ -1,5 +1,5 @@
 {if; {replace; {message.content}; -helper .*$; -helper}; == ; -helper;
-{set; porterver; Powered by YinYang's Porter Atlas Project version 4.0.0ALPHA9}
+{set; porterver; Powered by YinYang's Porter Atlas Project version 4.0.0ALPHA10}
 {set; success; a helper will be available shortly.}
 {set; subject; {channel.name}}
 {set; subject2; {replace; {get; subject}; gcse-;}}
@@ -69,6 +69,7 @@
 {if; {get; unavail}; == ; 1ABDE; {set; pingtext; {get; pingtext} {role.mention; {get; headex}} {role.mention; {get; genericex}}}}
 {if; {get; unavail}; == ; 1ABE; {set; pingtext; {get; pingtext} {role.mention; {get; genericex}}}{channel.send; {get; nogenstr} Head of {get;subject2}" does not exist; #atlas-log}}
 {if; {get; unavail}; == ; 1AD; {set; pingtext; {get; pingtext} {role.mention; {get; headex}} {role.mention; {get; subject2} Helper}}}
+{if; {get; unavail}; == ; 1BE; {set; pingtext; {get; pingtext} {role.mention; Head of {get; subject2}}{role.mention; {get; genericex}}}}
 {if; {get; unavail}; ==; 1B; {set;pingtext; {get; pingtext} {role.mention; Head of {get; subject2}}}{channel.send; {get; nogenstr} {get;subject2} Helper" does not exist; #atlas-log}}
 {if; {get; unavail}; == ; 1AB; {set; avail; no} {channel.send; {get; nogenstr} Head of {get;subject2}" does not exist; #atlas-log} {channel.send; {get; nogenstr} {get;subject2} Helper" does not exist; #atlas-log}}
 {if; {get; avail}; == ; yes; {get;pingtext} 
