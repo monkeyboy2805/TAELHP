@@ -1,5 +1,5 @@
 {if; {replace; {message.content}; -helper .*$; -helper}; == ; -helper;
-{set; porterver; Powered by YinYang's Porter Atlas Project version 4.0.0ALPHA10}
+{set; porterver; Powered by YinYang's Porter Atlas Project version 4.0.0BETA1}
 {set; success; a helper will be available shortly.}
 {set; subject; {channel.name}}
 {set; subject2; {replace; {get; subject}; gcse-;}}
@@ -13,6 +13,7 @@
 {set; nogenstr; WARNING: The role "}
 {if;{length; {get;subject2}}; == ; {math; {length; {get;subject}} - 5}; {set; type; GCSE} {set; validtype; true}}
 {if;{length; {get;subject2}}; == ; {math; {length; {get;subject}} - 8}; {set; type; A-level} {set; validtype; true}}
+{set; subject2; {replace; {get; subject2}; -.*$} {replace; {get; subject2}; .*?-}}
 {if; {get;validtype}; == ; false; {set; avail; no}}
 {if; {get;type}; == ; GCSE; {set; unavail; 0}}
 {if; {get;type}; == ; A-level; {set; unavail; 1}}
