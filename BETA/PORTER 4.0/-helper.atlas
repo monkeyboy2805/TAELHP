@@ -1,5 +1,5 @@
 {if; {replace; {message.content}; -helper .*$; -helper}; == ; -helper;
-{set; porterver; Powered by YinYang's Porter Atlas Project version 4.0.0BETA3}
+{set; porterver; Powered by YinYang's Porter Atlas Project version 4.0.0BETA4}
 {set; success; a helper will be available shortly.}
 {set; subject; {channel.name}}
 {set; subject2; {replace; {get; subject}; gcse-;}}
@@ -18,7 +18,8 @@
 {if; {get;type}; == ; GCSE; {set; unavail; 0}}
 {if; {get;type}; == ; A-level; {set; unavail; 1}}
 {if; {role.mention; Head of {get; subject2}}; == ;{l}role.mention-ERROR1-no-role-matching-your-search{r}; {set; unavail; {get; unavail}A};
-{if; {find; {role.name; {role.mention; Head of {get; subject2}}}; {get; subject2}}; == ; {get;subject2};;{set; unavail; {get; unavail}A}}}
+{if; {lower; {find; {role.name; {role.mention; Head of {get; subject2}}};{get; subject2}}}; == ;{get;subject2};ZING;{set; unavail; {get; unavail}A}}}
+{find; {role.name; {role.mention; Head of {get; subject2}}}; {get; subject2}}
 {if; {replace; {get; unavail};.*?A.*$;A}; == ; A;
 {if; {find; {perget; helperExceptions}; {get; subject2}}; == ; {get; subject2};
 {set; headex; {replace; {perget; helperExceptions}; Head of {get; subject2}.*$;}}
@@ -26,7 +27,7 @@
 {set; headex; {replace;{get; headex};<;}}
 {set; needD; true}}}
 {if; {role.mention; {get; subject2} Helper}; == ; {l}role.mention-ERROR1-no-role-matching-your-search{r}; {set; unavail; {get; unavail}B};
-{if; {find; {role.name; {role.mention; {get; subject2} Helper}}; {get; subject2}}; == ; {get;subject2};;{set; unavail; {get; unavail}B}}}
+{if; {lower; {find; {role.name; {role.mention; {get; subject2} Helper}}; {get; subject2}}}; == ; {get;subject2};;{set; unavail; {get; unavail}B}}}
 {set; GPING; 0}
 {if; {replace; {get; unavail};.*?B.*$;B}; == ; B;
 {if; {find; {perget; helperExceptions}; {get; subject2}}; == ; {get; subject2};
@@ -36,7 +37,7 @@
 {set; needE; true}}}
 {if; {get;type}; == ; GCSE; {set; GPING; 1}}
 {if; {role.mention; {get; subject2} GCSE Helper}; == ; {l}role.mention-ERROR1-no-role-matching-your-search{r}; {set; GPING; {get; GPING}C};
-{if; {find; {role.name; {role.mention; {get; subject2} GCSE Helper}}; {get; subject2}}; == ; {get;subject2};;{set; GPING; {get; GPING}C}}}
+{if; {lower; {find; {role.name; {role.mention; {get; subject2} GCSE Helper}}; {get; subject2}}}; == ; {get;subject2};;{set; GPING; {get; GPING}C}}}
 {if; {get; GPING}; == ; 1C; {set; unavail; {get; unavail}C}}
 {if; {replace; {get; unavail};.*?C.*$;C}; == ; C;
 {if; {find; {perget; helperExceptions}; {get; subject2}}; == ; {get; subject2};
