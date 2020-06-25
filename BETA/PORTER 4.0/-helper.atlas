@@ -1,5 +1,5 @@
 {if; {replace; {message.content}; -helper .*$; -helper}; == ; -helper;
-{set; porterver; Powered by YinYang's Porter Atlas Project version 4.0.0BETA4}
+{set; porterver; Powered by YinYang's Porter Atlas Project version 4.0.0BETA5}
 {set; success; a helper will be available shortly.}
 {set; subject; {channel.name}}
 {set; subject2; {replace; {get; subject}; gcse-;}}
@@ -82,9 +82,12 @@
 {if; {get; unavail}; ==; 1B; {set;pingtext; {get; pingtext} {role.mention; Head of {get; subject2}}}{channel.send; {get; nogenstr}{get;subject2} Helper" does not exist; #atlas-log}}
 {if; {get; unavail}; == ; 1AB; {set; avail; no} {channel.send; {get; nogenstr}Head of {get;subject2}" does not exist; #atlas-log} {channel.send; {get; nogenstr}{get;subject2} Helper" does not exist; #atlas-log}}
 {if; {get; avail}; == ; yes; {get;pingtext} 
-{user.mention} {get; success}}
-{if; {get; avail}; == ; no; {user.mention} Unfortunately there are no helper roles available for this channel}
->>>{get; porterver}<<<
+{user.mention} {get; success}
+
+>>>{get; porterver}<<<}
+{if; {get; avail}; == ; no; {user.mention} Unfortunately there are no helper roles available for this channel
+
+>>>{get; porterver}<<<}
 {set; invokerchannelid; {channel.id}}
 {set; invokermessageid; {message.id}}
 {channel.send; {user.tag} called for {get;subject2} help in {get; subject} https://discord.com/channels/{guild.id}/{get; invokerchannelid}/{get; invokermessageid}; atlas-log}
