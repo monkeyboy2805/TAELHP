@@ -90,5 +90,6 @@
 >>>{get; porterver}<<<}
 {set; invokerchannelid; {channel.id}}
 {set; invokermessageid; {message.id}}
-{channel.send; {user.tag} called for {get;subject2} help in {get; subject} https://discord.com/channels/{guild.id}/{get; invokerchannelid}/{get; invokermessageid}; atlas-log}
+{channel.send; {user.tag} called for {get;subject2} help in {channel.mention; {get; invokerchannelid}} {channel.name; {get; invokerchannelid}
+https://discord.com/channels/{guild.id}/{get; invokerchannelid}/{get; invokermessageid}; atlas-log}
 }
