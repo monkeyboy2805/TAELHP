@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 {if; {replace; {message.content}; -helper .*$; -helper}; == ; -helper;
 {set; porterver; Powered by YinYang's Porter Atlas Project version 4.0.0BETA6}
 {set; success; a helper will be available shortly.}
