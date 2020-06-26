@@ -47,18 +47,16 @@
 {if; {get; GPING}; == ; 1C; {set; unavail; {get; unavail}C}}
 {if; {replace; {get; unavail};.*?C.*$;C}; == ; C;
 {if; {find; {lower; {get; hxAsIs}}; {get; subject2}}; == ; {get; subject2};
-BING3
 {set; gcseex; {replace; {get; hxAsIs}; {get; subject2} GCSE Helper.*$;}}
 {set; hxAsIs; {replace; {get; hxAsIs}; {get; gcseex} {get; subject2} GCSE Helper;}}
 {set; gcseex; {replace; {get; gcseex}; .?£;}}
 {set; gcseex; {replace; {get; gcseex};<;}}
 {set; gcseex; {replace; {get; gcseex};&;}}
-{if; {role.mention; {get; gcseex}}; == ; {l}role.mention-ERROR1-no-role-matching-your-search{r}; BING {set; needF; false} {channel.send; Replacement GCSE Helper role "{get; gcseex}" does not exist; #atlas-log}; {set; needF; true}}
-{if; {lower; {role.name; {role.mention; {get; gcseex}}}}; == ; {lower; {get; gcseex}};; BING2 {set; needF; false} {channel.send; Replacement GCSE Helper role "{get; gcseex}" does not exist; #atlas-log}}}}
+{if; {role.mention; {get; gcseex}}; == ; {l}role.mention-ERROR1-no-role-matching-your-search{r}; {set; needF; false} {channel.send; Replacement GCSE Helper role "{get; gcseex}" does not exist; #atlas-log}; {set; needF; true}}
+{if; {lower; {role.name; {role.mention; {get; gcseex}}}}; == ; {lower; {get; gcseex}};; {set; needF; false} {channel.send; Replacement GCSE Helper role "{get; gcseex}" does not exist; #atlas-log}}}}
 {if; {get; needD}; == ; true; {set; unavail; {get;unavail}D}}
 {if; {get; needE}; == ; true; {set; unavail; {get;unavail}E}}
 {if; {get; needF}; == ; true; {set; unavail; {get;unavail}F}}
-{get; unavail}
 {if; {get; unavail}; == ; 0; {set; pingtext; {get; pingtext} {role.mention; Head of {get;subject2}} {role.mention; {get; subject2} Helper} {role.mention; {get; subject2} GCSE Helper}}}
 {if; {get; unavail}; ==; 0A; {set; pingtext; {get; pingtext} {role.mention; {get; subject2} Helper} {role.mention; {get; subject2} GCSE Helper}} {channel.send; {get; nogenstr}Head of {get;subject2}" does not exist; #atlas-log}}
 {if; {get; unavail}; ==; 0B; {set;pingtext; {get;pingtext} {role.mention; Head of {get; subject2}} {role.mention; {get; subject2} GCSE Helper}} {channel.send; {get; nogenstr}{get;subject2} Helper" does not exist; #atlas-log}}
