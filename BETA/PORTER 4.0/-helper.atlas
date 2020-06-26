@@ -23,7 +23,6 @@
 {if; {replace; {get; unavail};.*?A.*$;A}; == ; A;
 {if; {find; {lower; {get; hxAsIs}}; {get; subject2}}; == ; {get; subject2};
 {set; headex; {replace; {get; hxAsIs}; Head of {get; subject2}.*$;}}
-{get; headex}
 {set; hxAsIs; {replace; {get; hxAsIs}; {get; headex} Head of {get; subject2};}}
 {set; headex; {replace; {get; headex}; .*?£;}}
 {set; headex; {replace;{get; headex};<;}}
