@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {if; {replace; {message.content}; -helper .*$; -helper}; == ; -helper;
 {set; porterver; Powered by YinYang's Porter Atlas Project version 4.0.0BETA6}
 {set; success; a helper will be available shortly.}
@@ -92,4 +93,3 @@
 {set; invokermessageid; {message.id}}
 {channel.send; {user.tag} called for {get;subject2} help in {channel.mention; {get; invokerchannelid}} ({channel.name; {get; invokerchannelid}})
 https://discord.com/channels/{guild.id}/{get; invokerchannelid}/{get; invokermessageid}; atlas-log}
-}
