@@ -1,5 +1,5 @@
 {if; {replace; {message.content}; -helper .*$; -helper}; == ; -helper;
-{set; porterver; Powered by YinYang's Porter Atlas Project version 4.0.0BETA7}
+{set; porterver; Powered by YinYang's Porter Atlas Project version 4.0.0BETA8}
 {set; success; a helper will be available shortly.}
 {set; subject; {channel.name}}
 {set; subject2; {replace; {get; subject}; gcse-;}}
@@ -11,6 +11,7 @@
 {set; needE; false}
 {set; needF; false}
 {set; nogenstr; WARNING: The role "}
+{set; hxAsIs; {perget; helperExceptions}}
 {if;{length; {get;subject2}}; == ; {math; {length; {get;subject}} - 5}; {set; type; GCSE} {set; validtype; true}}
 {if;{length; {get;subject2}}; == ; {math; {length; {get;subject}} - 8}; {set; type; A-level} {set; validtype; true}}
 {if; {find; {get; subject2};-};==;-; {set; subject2; {replace; {get; subject2}; -.*$} {replace; {get; subject2}; .*?-}}}
@@ -20,18 +21,21 @@
 {if; {role.mention; Head of {get; subject2}}; == ;{l}role.mention-ERROR1-no-role-matching-your-search{r}; {set; unavail; {get; unavail}A};
 {if; {lower; {find; {role.name; {role.mention; Head of {get; subject2}}};{get; subject2}}}; == ;{get;subject2};;{set; unavail; {get; unavail}A}}}
 {if; {replace; {get; unavail};.*?A.*$;A}; == ; A;
-{if; {find; {lower; {perget; helperExceptions}}; {get; subject2}}; == ; {get; subject2};
-{set; headex; {replace; {perget; helperExceptions}; Head of {get; subject2}.*$;}}
+{if; {find; {lower; {get; hxAsIs}}; {get; subject2}}; == ; {get; subject2};
+{set; headex; {replace; {get; hxAsIs}; Head of {get; subject2}.*$;}}
+{get; headex}
+{set; hxAsIs; {replace; {get; hxAsIs}; {get; headex} Head of {get; subject2};}}
 {set; headex; {replace; {get; headex}; .*?£;}}
 {set; headex; {replace;{get; headex};<;}}
-{if; {role.mention; {get; headex}}; == ; {l}role.mention-ERROR1-no-role-matching-your-search{r}; {set; needD; false} {channel.send; Replacement Head role "{get; headex}" does not exist; #atlas-log}; {set; needD; true}}
 }}
+{if; {role.mention; {get; headex}}; == ; {l}role.mention-ERROR1-no-role-matching-your-search{r}; {set; needD; false} {channel.send; Replacement Head role "{get; headex}" does not exist; #atlas-log}; {set; needD; true}}
 {if; {role.mention; {get; subject2} Helper}; == ; {l}role.mention-ERROR1-no-role-matching-your-search{r}; {set; unavail; {get; unavail}B};
 {if; {lower; {find; {role.name; {role.mention; {get; subject2} Helper}}; {get; subject2}}}; == ; {get;subject2};;{set; unavail; {get; unavail}B}}}
 {set; GPING; 0}
 {if; {replace; {get; unavail};.*?B.*$;B}; == ; B;
-{if; {find; {lower; {perget; helperExceptions}}; {get; subject2}}; == ; {get; subject2};
-{set; genericex; {replace; {perget; helperExceptions}; {get; subject2} Helper.*$;}}
+{if; {find; {lower; {get; hxAsIs}}; {get; subject2}}; == ; {get; subject2};
+{set; genericex; {replace; {get; hxAsIs}; {get; subject2} Helper.*$;}}
+{set; hxAsIs; {replace; {get; hxAsIs}; {get; genericex} {get; subject2} Helper;}}
 {set; genericex; {replace; {get; genericex}; .?£;}}
 {set; genericex; {replace; {get; genericex};<;}}
 {if; {role.mention; {get; genericex}}; == ; {l}role.mention-ERROR1-no-role-matching-your-search{r}; {set; needE; false} {channel.send; Replacement Generic Helper role "{get; genericex}" does not exist; #atlas-log}; {set; needE; true}}
@@ -41,8 +45,9 @@
 {if; {lower; {find; {role.name; {role.mention; {get; subject2} GCSE Helper}}; {get; subject2}}}; == ; {get;subject2};;{set; GPING; {get; GPING}C}}}
 {if; {get; GPING}; == ; 1C; {set; unavail; {get; unavail}C}}
 {if; {replace; {get; unavail};.*?C.*$;C}; == ; C;
-{if; {find; {lower; {perget; helperExceptions}}; {get; subject2}}; == ; {get; subject2};
-{set; gcseex; {replace; {perget; helperExceptions}; {get; subject2} GCSE Helper.*$;}}
+{if; {find; {lower; {get; hxAsIs}}; {get; subject2}}; == ; {get; subject2};
+{set; gcseex; {replace; {get; hxAsIs}; {get; subject2} GCSE Helper.*$;}}
+{set; hxAsIs; {replace; {get; hxAsIs}; {get; gcseex} {get; subject2} GCSE Helper;}}
 {set; gcseex; {replace; {get; gcseex}; .?£;}}
 {set; gcseex; {replace; {get; gcseex};<;}}
 {if; {role.mention; {get; gcseex}}; == ; {l}role.mention-ERROR1-no-role-matching-your-search{r}; {set; needF; false} {channel.send; Replacement GCSE Helper role "{get; gcseex}" does not exist; #atlas-log}; {set; needF; true}}
