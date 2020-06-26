@@ -1,5 +1,5 @@
 {if; {replace; {message.content}; -helper .*$; -helper}; == ; -helper;
-{set; porterver; Powered by YinYang's Porter Atlas Project version 4.0.0BETA2}
+{set; porterver; Powered by YinYang's Porter Atlas Project version 4.0.0BETA6}
 {set; success; a helper will be available shortly.}
 {set; subject; {channel.name}}
 {set; subject2; {replace; {get; subject}; gcse-;}}
@@ -17,67 +17,79 @@
 {if; {get;validtype}; == ; false; {set; avail; no}}
 {if; {get;type}; == ; GCSE; {set; unavail; 0}}
 {if; {get;type}; == ; A-level; {set; unavail; 1}}
-{if; {role.mention; Head of {get; subject2}}; == ;{l}role.mention-ERROR1-no-role-matching-your-search{r}; {set; unavail; {get; unavail}A}}
+{if; {role.mention; Head of {get; subject2}}; == ;{l}role.mention-ERROR1-no-role-matching-your-search{r}; {set; unavail; {get; unavail}A};
+{if; {lower; {find; {role.name; {role.mention; Head of {get; subject2}}};{get; subject2}}}; == ;{get;subject2};;{set; unavail; {get; unavail}A}}}
 {if; {replace; {get; unavail};.*?A.*$;A}; == ; A;
+{if; {find; {lower; {perget; helperExceptions}}; {get; subject2}}; == ; {get; subject2};
 {set; headex; {replace; {perget; helperExceptions}; Head of {get; subject2}.*$;}}
 {set; headex; {replace; {get; headex}; .*?£;}}
 {set; headex; {replace;{get; headex};<;}}
-{set; needD; true}}
-{if; {role.mention; {get; subject2} Helper}; == ; {l}role.mention-ERROR1-no-role-matching-your-search{r}; {set; unavail; {get; unavail}B}}
+{set; needD; true}}}
+{if; {role.mention; {get; subject2} Helper}; == ; {l}role.mention-ERROR1-no-role-matching-your-search{r}; {set; unavail; {get; unavail}B};
+{if; {lower; {find; {role.name; {role.mention; {get; subject2} Helper}}; {get; subject2}}}; == ; {get;subject2};;{set; unavail; {get; unavail}B}}}
 {set; GPING; 0}
 {if; {replace; {get; unavail};.*?B.*$;B}; == ; B;
+{if; {find; {lower; {perget; helperExceptions}}; {get; subject2}}; == ; {get; subject2};
 {set; genericex; {replace; {perget; helperExceptions}; {get; subject2} Helper.*$;}}
 {set; genericex; {replace; {get; genericex}; .?£;}}
 {set; genericex; {replace; {get; genericex};<;}}
-{set; needE; true}}
+{set; needE; true}}}
 {if; {get;type}; == ; GCSE; {set; GPING; 1}}
-{if; {role.mention; {get; subject2} GCSE Helper}; == ; {l}role.mention-ERROR1-no-role-matching-your-search{r}; {set; GPING; {get; GPING}C}}
+{if; {role.mention; {get; subject2} GCSE Helper}; == ; {l}role.mention-ERROR1-no-role-matching-your-search{r}; {set; GPING; {get; GPING}C};
+{if; {lower; {find; {role.name; {role.mention; {get; subject2} GCSE Helper}}; {get; subject2}}}; == ; {get;subject2};;{set; GPING; {get; GPING}C}}}
 {if; {get; GPING}; == ; 1C; {set; unavail; {get; unavail}C}}
 {if; {replace; {get; unavail};.*?C.*$;C}; == ; C;
+{if; {find; {lower; {perget; helperExceptions}}; {get; subject2}}; == ; {get; subject2};
 {set; gcseex; {replace; {perget; helperExceptions}; {get; subject2} GCSE Helper.*$;}}
 {set; gcseex; {replace; {get; gcseex}; .?£;}}
-{set; gcseex; {replace; {get; gcseex};<;}}}
+{set; gcseex; {replace; {get; gcseex};<;}}
+{set; needF; true}
+{get; gcseex}}}
 {if; {get; needD}; == ; true; {set; unavail; {get;unavail}D}}
 {if; {get; needE}; == ; true; {set; unavail; {get;unavail}E}}
 {if; {get; needF}; == ; true; {set; unavail; {get;unavail}F}}
 {if; {get; unavail}; == ; 0; {set; pingtext; {get; pingtext} {role.mention; Head of {get;subject2}} {role.mention; {get; subject2} Helper} {role.mention; {get; subject2} GCSE Helper}}}
-{if; {get; unavail}; ==; 0A; {set; pingtext; {get; pingtext} {role.mention; {get; subject2} Helper} {role.mention; {get; subject2} GCSE Helper}} {channel.send; {get; nogenstr} Head of {get;subject2}" does not exist; #atlas-log}}
-{if; {get; unavail}; ==; 0B; {set;pingtext; {get;pingtext} {role.mention; Head of {get; subject2}} {role.mention; {get; subject2} GCSE Helper}} {channel.send; {get; nogenstr} {get;subject2} Helper" does not exist; #atlas-log}}
-{if; {get; unavail}; == ; 0C; {set;pingtext; {get;pingtext} {role.mention; Head of {get;subject2}} {role.mention; {get;subject2} Helper}}{channel.send; {get; nogenstr} {get;subject2} GCSE Helper" does not exist; #atlas-log}}
-{if; {get; unavail}; == ; 0AB; {set;pingtext; {get;pingtext} {role.mention; {get; subject2} GCSE Helper}} {channel.send; {get; nogenstr} Head of {get;subject2}" does not exist; #atlas-log} {channel.send; {get; nogenstr} {get;subject2} Helper" does not exist; #atlas-log}}
-{if; {get; unavail}; == ; 0AC; {set; pingtext; {get;pingtext} {role.mention; {get;subject2} Helper}} {channel.send; {get; nogenstr} Head of {get;subject2}" does not exist; #atlas-log} {channel.send; {get; nogenstr} {get;subject2} GCSE Helper" does not exist; #atlas-log}}
-{if; {get; unavail}; == ; 0BC; {set;pingtext; {get;pingtext} {role.mention; Head of {get; subject2}}} {channel.send; {get; nogenstr} {get;subject2} Helper" does not exist; #atlas-log} {channel.send; {get; nogenstr} {get;subject2} GCSE Helper" does not exist; #atlas-log}}
-{if; {get; unavail}; == ; 0ABC; {set; avail; no} {channel.send; {get; nogenstr} Head of {get;subject2}" does not exist; #atlas-log} {channel.send; {get; nogenstr} {get;subject2} Helper" does not exist; #atlas-log} {channel.send; {get; nogenstr} {get;subject2} GCSE Helper" does not exist; #atlas-log}}
+{if; {get; unavail}; ==; 0A; {set; pingtext; {get; pingtext} {role.mention; {get; subject2} Helper} {role.mention; {get; subject2} GCSE Helper}} {channel.send; {get; nogenstr}Head of {get;subject2}" does not exist; #atlas-log}}
+{if; {get; unavail}; ==; 0B; {set;pingtext; {get;pingtext} {role.mention; Head of {get; subject2}} {role.mention; {get; subject2} GCSE Helper}} {channel.send; {get; nogenstr}{get;subject2} Helper" does not exist; #atlas-log}}
+{if; {get; unavail}; == ; 0C; {set;pingtext; {get;pingtext} {role.mention; Head of {get;subject2}} {role.mention; {get;subject2} Helper}}{channel.send; {get; nogenstr}{get;subject2} GCSE Helper" does not exist; #atlas-log}}
+{if; {get; unavail}; == ; 0AB; {set;pingtext; {get;pingtext} {role.mention; {get; subject2} GCSE Helper}} {channel.send; {get; nogenstr}Head of {get;subject2}" does not exist; #atlas-log} {channel.send; {get; nogenstr}{get;subject2} Helper" does not exist; #atlas-log}}
+{if; {get; unavail}; == ; 0AC; {set; pingtext; {get;pingtext} {role.mention; {get;subject2} Helper}} {channel.send; {get; nogenstr}Head of {get;subject2}" does not exist; #atlas-log} {channel.send; {get; nogenstr}{get;subject2} GCSE Helper" does not exist; #atlas-log}}
+{if; {get; unavail}; == ; 0BC; {set;pingtext; {get;pingtext} {role.mention; Head of {get; subject2}}} {channel.send; {get; nogenstr}{get;subject2} Helper" does not exist; #atlas-log} {channel.send; {get; nogenstr}{get;subject2} GCSE Helper" does not exist; #atlas-log}}
+{if; {get; unavail}; == ; 0ABC; {set; avail; no} {channel.send; {get; nogenstr}Head of {get;subject2}" does not exist; #atlas-log} {channel.send; {get; nogenstr}{get;subject2} Helper" does not exist; #atlas-log} {channel.send; {get; nogenstr}{get;subject2} GCSE Helper" does not exist; #atlas-log}}
 {if; {get; unavail}; == ; 0AD; {set; pingtext; {get;pingtext} {role.mention; {get; headex}} {role.mention; {get; subject2} Helper} {role.mention; {get;subject2} GCSE Helper}}}
-{if; {get; unavail}; == ; 0ABD; {set; pingtext; {get;pingtext} {role.mention; {get; headex}}{role.mention; {get;subject2} GCSE Helper}} {channel.send; {get; nogenstr} {get;subject2} Helper" does not exist; #atlas-log}}
-{if; {get; unavail}; == ; 0ABE; {set; pingtext; {get;pingtext}{role.mention; {get; genericex}}{role.mention; {get; subject2} GCSE Helper}}{channel.send; {get; nogenstr} Head of {get;subject2}" does not exist; #atlas-log}}
-{if; {get; unavail}; == ; 0ACD; {set; pingtext; {get; pingtext}{role.mention; {get; headex}}{role.mention; {get; subject2} Helper}}{channel.send; {get; nogenstr} {get;subject2} GCSE Helper" does not exist; #atlas-log}}
-{if; {get; unavail}; == ; 0ACF; {set; pingtext; {get; pingtext}{role.mention; {get; subject2} Helper} {role.mention; {get; gcseex}}}{channel.send; {get; nogenstr} Head of {get;subject2}}}
-{if; {get; unavail}; == ; 0BCE; {set; pingtext; {get; pingtext} {role.mention; Head of {get;subject2}}{role.mention; {get; genericex}}} {channel.send; {get; nogenstr} {get;subject2} GCSE Helper" does not exist; #atlas-log}}
-{if; {get; unavail}; == ; 0BCF; {set; pingtext; {get; pingtext} {role.mention; Head of {get;subject2}}{role.mention; {get; gcseex}}}{channel.send; {get; nogenstr} {get;subject2} Helper" does not exist; #atlas-log}}
-{if; {get; unavail}; == ; 0ABCD; {set; pingtext; {get; pingtext} {role.mention; {get; headex}}} {channel.send; {get; nogenstr} {get;subject2} Helper" does not exist; #atlas-log}{channel.send; {get; nogenstr} {get;subject2} GCSE Helper" does not exist; #atlas-log}}
-{if; {get; unavail}; == ; 0ABCE; {set; pingtext; {get; pingtext} {role.mention; {get; genericex}}}{channel.send; {get; nogenstr} Head of {get;subject2}" does not exist; #atlas-log}{channel.send; {get; nogenstr} {get;subject2} GCSE Helper" does not exist; #atlas-log}}
-{if; {get; unavail}; == ; 0ABCF; {set; pingtext; {get; pingtext} {role.mention; {get; gcseex}}} {channel.send; {get; nogenstr} Head of {get;subject2}" does not exist; #atlas-log} {channel.send; {get; nogenstr} {get;subject2} Helper" does not exist; #atlas-log}}
+{if; {get; unavail}; == ; 0ABD; {set; pingtext; {get;pingtext} {role.mention; {get; headex}}{role.mention; {get;subject2} GCSE Helper}} {channel.send; {get; nogenstr}{get;subject2} Helper" does not exist; #atlas-log}}
+{if; {get; unavail}; == ; 0ABE; {set; pingtext; {get;pingtext}{role.mention; {get; genericex}}{role.mention; {get; subject2} GCSE Helper}}{channel.send; {get; nogenstr}Head of {get;subject2}" does not exist; #atlas-log}}
+{if; {get; unavail}; == ; 0ACD; {set; pingtext; {get; pingtext}{role.mention; {get; headex}}{role.mention; {get; subject2} Helper}}{channel.send; {get; nogenstr}{get;subject2} GCSE Helper" does not exist; #atlas-log}}
+{if; {get; unavail}; == ; 0ACF; {set; pingtext; {get; pingtext}{role.mention; {get; subject2} Helper} {role.mention; {get; gcseex}}}{channel.send; {get; nogenstr}Head of {get;subject2}}}
+{if; {get; unavail}; == ; 0BCE; {set; pingtext; {get; pingtext} {role.mention; Head of {get;subject2}}{role.mention; {get; genericex}}} {channel.send; {get; nogenstr}{get;subject2} GCSE Helper" does not exist; #atlas-log}}
+{if; {get; unavail}; == ; 0BCF; {set; pingtext; {get; pingtext} {role.mention; Head of {get;subject2}}{role.mention; {get; gcseex}}}{channel.send; {get; nogenstr}{get;subject2} Helper" does not exist; #atlas-log}}
+{if; {get; unavail}; == ; 0ABCD; {set; pingtext; {get; pingtext} {role.mention; {get; headex}}} {channel.send; {get; nogenstr}{get;subject2} Helper" does not exist; #atlas-log}{channel.send; {get; nogenstr}{get;subject2} GCSE Helper" does not exist; #atlas-log}}
+{if; {get; unavail}; == ; 0ABCE; {set; pingtext; {get; pingtext} {role.mention; {get; genericex}}}{channel.send; {get; nogenstr}Head of {get;subject2}" does not exist; #atlas-log}{channel.send; {get; nogenstr}{get;subject2} GCSE Helper" does not exist; #atlas-log}}
+{if; {get; unavail}; == ; 0ABCF; {set; pingtext; {get; pingtext} {role.mention; {get; gcseex}}} {channel.send; {get; nogenstr}Head of {get;subject2}" does not exist; #atlas-log} {channel.send; {get; nogenstr}{get;subject2} Helper" does not exist; #atlas-log}}
 {if; {get; unavail}; == ; 0ABDE; {set; pingtext; {get; pingtext}{role.mention; {get; headex}}{role.mention; {get; genericex}}{role.mention; {get; subject2} GCSE Helper}}}
 {if; {get; unavail}; == ; 0ACDF; {set; pingtext; {get; pingtext}{role.mention; {get; headex}}{role.mention; {get; subject2} Helper}; {role.mention; {get; gcseex}}}}
 {if; {get; unavail}; == ; 0BCEF; {set; pingtext; {get; pingtext} {role.mention; Head of {get; subject2}}{role.mention; {get; genericex}}{role.mention; {get; gcseex}}}}
-{if; {get; unavail}; == ; 0ABCDE; {set; pingtext; {get; pingtext} {role.mention; {get; headex}}{role.mention; {get; genericex}}} {channel.send; {get; nogenstr} {get;subject2} GCSE Helper" does not exist; #atlas-log}}
-{if; {get; unavail}; == ; 0ABCEF; {set; pingtext; {get; pingtext} {role.mention; {get; genericex}}{role.mention; {get; gcseex}}}{channel.send; {get; nogenstr} Head of {get;subject2}" does not exist; #atlas-log}}
+{if; {get; unavail}; == ; 0ABCDE; {set; pingtext; {get; pingtext} {role.mention; {get; headex}}{role.mention; {get; genericex}}} {channel.send; {get; nogenstr}{get;subject2} GCSE Helper" does not exist; #atlas-log}}
+{if; {get; unavail}; == ; 0ABCEF; {set; pingtext; {get; pingtext} {role.mention; {get; genericex}}{role.mention; {get; gcseex}}}{channel.send; {get; nogenstr}Head of {get;subject2}" does not exist; #atlas-log}}
 {if; {get; unavail}; == ; 0ABCDEF; {set; pingtext; {get; pingtext} {role.mention; {get; headex}}{role.mention; {get;genericex}}{role.mention; {get; gcseex}}}}
 {if; {get; unavail}; == ; 1; {set;pingtext; {get;pingtext} {role.mention; Head of {get; subject2}} {role.mention; {get; subject2} Helper}}}
-{if; {get; unavail}; == ; 1A; {set;pingtext; {get;pingtext} {role.mention; {get; subject2} Helper}} {channel.send; {get; nogenstr} Head of {get;subject2}" does not exist; #atlas-log}}
-{if; {get; unavail}; == ; 1ABD; {set; pingtext; {get;pingtext} {role.mention; {get; headex}}}{channel.send; {get; nogenstr} {get;subject2} Helper" does not exist; #atlas-log}}
+{if; {get; unavail}; == ; 1A; {set;pingtext; {get;pingtext} {role.mention; {get; subject2} Helper}} {channel.send; {get; nogenstr}Head of {get;subject2}" does not exist; #atlas-log}}
+{if; {get; unavail}; == ; 1ABD; {set; pingtext; {get;pingtext} {role.mention; {get; headex}}}{channel.send; {get; nogenstr}{get;subject2} Helper" does not exist; #atlas-log}}
 {if; {get; unavail}; == ; 1ABDE; {set; pingtext; {get; pingtext} {role.mention; {get; headex}} {role.mention; {get; genericex}}}}
-{if; {get; unavail}; == ; 1ABE; {set; pingtext; {get; pingtext} {role.mention; {get; genericex}}}{channel.send; {get; nogenstr} Head of {get;subject2}" does not exist; #atlas-log}}
+{if; {get; unavail}; == ; 1ABE; {set; pingtext; {get; pingtext} {role.mention; {get; genericex}}}{channel.send; {get; nogenstr}Head of {get;subject2}" does not exist; #atlas-log}}
 {if; {get; unavail}; == ; 1AD; {set; pingtext; {get; pingtext} {role.mention; {get; headex}} {role.mention; {get; subject2} Helper}}}
 {if; {get; unavail}; == ; 1BE; {set; pingtext; {get; pingtext} {role.mention; Head of {get; subject2}}{role.mention; {get; genericex}}}}
-{if; {get; unavail}; ==; 1B; {set;pingtext; {get; pingtext} {role.mention; Head of {get; subject2}}}{channel.send; {get; nogenstr} {get;subject2} Helper" does not exist; #atlas-log}}
-{if; {get; unavail}; == ; 1AB; {set; avail; no} {channel.send; {get; nogenstr} Head of {get;subject2}" does not exist; #atlas-log} {channel.send; {get; nogenstr} {get;subject2} Helper" does not exist; #atlas-log}}
+{if; {get; unavail}; ==; 1B; {set;pingtext; {get; pingtext} {role.mention; Head of {get; subject2}}}{channel.send; {get; nogenstr}{get;subject2} Helper" does not exist; #atlas-log}}
+{if; {get; unavail}; == ; 1AB; {set; avail; no} {channel.send; {get; nogenstr}Head of {get;subject2}" does not exist; #atlas-log} {channel.send; {get; nogenstr}{get;subject2} Helper" does not exist; #atlas-log}}
 {if; {get; avail}; == ; yes; {get;pingtext} 
-{user.mention} {get; success}}
-{if; {get; avail}; == ; no; {user.mention} Unfortunately there are no helper roles available for this channel}
->>>{get; porterver}<<<
+{user.mention} {get; success}
+
+>>>{get; porterver}<<<}
+{if; {get; avail}; == ; no; {user.mention} Unfortunately there are no helper roles available for this channel
+
+>>>{get; porterver}<<<}
 {set; invokerchannelid; {channel.id}}
 {set; invokermessageid; {message.id}}
-{channel.send; {user.tag} called for {get;subject2} help in {get; subject} https://discord.com/channels/{guild.id}/{get; invokerchannelid}/{get; invokermessageid}; atlas-log}
+{channel.send; {user.tag} called for {get;subject2} help in {channel.mention; {get; invokerchannelid}} ({channel.name; {get; invokerchannelid}})
+https://discord.com/channels/{guild.id}/{get; invokerchannelid}/{get; invokermessageid}; atlas-log}
 }
