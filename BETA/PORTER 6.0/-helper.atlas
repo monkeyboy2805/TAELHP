@@ -5,7 +5,7 @@ STAGE 1
 {set; arg2; {replace; {get; exAdd}; ,.*$;}}
 {if; {replace; {get; arg2}; Head.*$; Head}; == ; Head; {perset; helperExceptions; £{get;arg1}< {get;arg2}& {perget; helperExceptions}}; {perset; helperExceptions; {perget; helperExceptions} £{get;arg1}< {get;arg2}&}} Swapped {get; arg2} with {get; arg1};
 {if; {replace; {message.content}; -helper .*$; -helper}; == ; -helper;
-{set; porterver; Powered by YinYang's Porter Atlas Project version 6.0.0ALPHA1}
+{set; porterver; Powered by YinYang's Porter Atlas Project version 6.0.0ALPHA2}
 {set; success; a helper will be available shortly.}
 {set; subject; {channel.name}}
 {set; subject2; {replace; {get; subject}; gcse-;}}
@@ -35,10 +35,10 @@ STAGE 2
 {set; hxAsIs; {replace; {get; hxAsIs}; {get; headex} Head of {get; subject2};}}
 {set; headex; {replace; {get; headex}; .*?£;}}
 {set; headex; {replace;{get; headex};<;}}
-}}
+}
 STAGE 3
 {if; {role.mention; {get; headex}}; == ; {l}role.mention-ERROR1-no-role-matching-your-search{r}; {set; needD; false} {channel.send; Replacement Head role "{get; headex}" does not exist; #atlas-log}; {set; needD; true}}
-{if; {lower; {role.name; {role.mention; {get; headex}}}}; == ; {lower; {get; headex}};; {set; needD; false} {channel.send; Replacement Head role "{get; headex}" does not exist; #atlas-log}}
+{if; {lower; {role.name; {role.mention; {get; headex}}}}; == ; {lower; {get; headex}};; {set; needD; false} {channel.send; Replacement Head role "{get; headex}" does not exist; #atlas-log}}}
 {if; {role.mention; {get; subject2} Helper}; == ; {l}role.mention-ERROR1-no-role-matching-your-search{r}; {set; unavail; {get; unavail}B};
 {if; {lower; {find; {role.name; {role.mention; {get; subject2} Helper}}; {get; subject2}}}; == ; {get;subject2};;{set; unavail; {get; unavail}B}}}
 {set; GPING; 0}
