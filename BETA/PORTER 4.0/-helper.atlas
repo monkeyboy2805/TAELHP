@@ -1,5 +1,10 @@
+{set; exAdd; {replace; {message.content}; -helper _swap_ ;}}
+{if; {replace; {message.content}; -helper _swap_ .*$; -helper _swap_}; == ; -helper _swap_;
+{set; arg1; {replace; {get; exAdd}; .*?,;}}
+{set; arg2; {replace; {get; exAdd}; ,.*$;}}
+{perset; helperExceptions; {perget; helperExceptions} £{get;arg1}< {get;arg2}&};
 {if; {replace; {message.content}; -helper .*$; -helper}; == ; -helper;
-{set; porterver; Powered by YinYang's Porter Atlas Project version 4.0.0BETA9}
+{set; porterver; Powered by YinYang's Porter Atlas Project version 5.0.0ALPHA1}
 {set; success; a helper will be available shortly.}
 {set; subject; {channel.name}}
 {set; subject2; {replace; {get; subject}; gcse-;}}
@@ -102,4 +107,4 @@
 {set; invokermessageid; {message.id}}
 {channel.send; {user.tag} called for {get;subject2} help in {channel.mention; {get; invokerchannelid}} ({channel.name; {get; invokerchannelid}})
 https://discord.com/channels/{guild.id}/{get; invokerchannelid}/{get; invokermessageid}; atlas-log}
-}
+}}
