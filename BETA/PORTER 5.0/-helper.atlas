@@ -2,7 +2,7 @@
 {if; {replace; {message.content}; -helper _swap_ .*$; -helper _swap_}; == ; -helper _swap_;
 {set; arg1; {replace; {get; exAdd}; .*?,;}}
 {set; arg2; {replace; {get; exAdd}; ,.*$;}}
-{perset; helperExceptions; {perget; helperExceptions} £{get;arg1}< {get;arg2}&};
+{if; {replace; {get; arg2}; Head.*$; Head}; == ; Head; {perset; helperExceptions; £{get;arg1}< {get;arg2}& {perget; helperExceptions}}; {perset; helperExceptions; {perget; helperExceptions} £{get;arg1}< {get;arg2}&}};
 {if; {replace; {message.content}; -helper .*$; -helper}; == ; -helper;
 {set; porterver; Powered by YinYang's Porter Atlas Project version 5.0.0ALPHA1}
 {set; success; a helper will be available shortly.}
