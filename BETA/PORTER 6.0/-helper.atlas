@@ -1,5 +1,4 @@
 {set; exAdd; {replace; {message.content}; -helper _swap_ ;}}
-STAGE 1
 {if; {replace; {message.content}; -helper _swap_ .*$; -helper _swap_}; == ; -helper _swap_;
 {set; arg1; {replace; {get; exAdd}; .*?,;}}
 {set; arg2; {replace; {get; exAdd}; ,.*$;}}
@@ -23,7 +22,6 @@ STAGE 1
 {if;{length; {get;subject2}}; == ; {math; {length; {get;subject}} - 5}; {set; type; GCSE} {set; validtype; true}}
 {if;{length; {get;subject2}}; == ; {math; {length; {get;subject}} - 8}; {set; type; A-level} {set; validtype; true}}
 {if; {find; {get; subject2};-};==;-; {set; subject2; {replace; {get; subject2}; -.*$} {replace; {get; subject2}; .*?-}}}
-STAGE 2
 {if; {get;validtype}; == ; false; {set; avail; no}}
 {if; {get;type}; == ; GCSE; {set; unavail; 0}}
 {if; {get;type}; == ; A-level; {set; unavail; 1}}
@@ -35,7 +33,6 @@ STAGE 2
 {set; hxAsIs; {replace; {get; hxAsIs}; {get; headex} Head of {get; subject2};}}
 {set; headex; {replace; {get; headex}; .*?£;}}
 {set; headex; {replace;{get; headex};<;}}
-STAGE 3
 {if; {role.mention; {get; headex}}; == ; {l}role.mention-ERROR1-no-role-matching-your-search{r}; {set; needD; false} {channel.send; Replacement Head role "{get; headex}" does not exist; #atlas-log}; {set; needD; true}}
 {if; {lower; {role.name; {role.mention; {get; headex}}}}; == ; {lower; {get; headex}};; {set; needD; false} {channel.send; Replacement Head role "{get; headex}" does not exist; #atlas-log}}}}
 {if; {role.mention; {get; subject2} Helper}; == ; {l}role.mention-ERROR1-no-role-matching-your-search{r}; {set; unavail; {get; unavail}B};
@@ -67,7 +64,6 @@ STAGE 3
 {if; {get; needE}; == ; true; {set; unavail; {get;unavail}E}}
 {if; {get; needF}; == ; true; {set; unavail; {get;unavail}F}}
 {if; {get; unavail}; == ; 0; {set; pingtext; {get; pingtext} {role.mention; Head of {get;subject2}} {role.mention; {get; subject2} Helper} {role.mention; {get; subject2} GCSE Helper}}}
-STAGE 4
 {if; {replace; {get; unavail}; .*?A.*$;A}; == ; A;
 {if; {replace; {get; unavail}; .*?D.*$D}; == ; D;
 {set; pingtext; {get; pingtext} {role.mention; {get; headex}}};
