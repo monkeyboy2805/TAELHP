@@ -35,10 +35,9 @@ STAGE 2
 {set; hxAsIs; {replace; {get; hxAsIs}; {get; headex} Head of {get; subject2};}}
 {set; headex; {replace; {get; headex}; .*?£;}}
 {set; headex; {replace;{get; headex};<;}}
-}
 STAGE 3
 {if; {role.mention; {get; headex}}; == ; {l}role.mention-ERROR1-no-role-matching-your-search{r}; {set; needD; false} {channel.send; Replacement Head role "{get; headex}" does not exist; #atlas-log}; {set; needD; true}}
-{if; {lower; {role.name; {role.mention; {get; headex}}}}; == ; {lower; {get; headex}};; {set; needD; false} {channel.send; Replacement Head role "{get; headex}" does not exist; #atlas-log}}}
+{if; {lower; {role.name; {role.mention; {get; headex}}}}; == ; {lower; {get; headex}};; {set; needD; false} {channel.send; Replacement Head role "{get; headex}" does not exist; #atlas-log}}}}
 {if; {role.mention; {get; subject2} Helper}; == ; {l}role.mention-ERROR1-no-role-matching-your-search{r}; {set; unavail; {get; unavail}B};
 {if; {lower; {find; {role.name; {role.mention; {get; subject2} Helper}}; {get; subject2}}}; == ; {get;subject2};;{set; unavail; {get; unavail}B}}}
 {set; GPING; 0}
@@ -67,6 +66,7 @@ STAGE 3
 {if; {get; needD}; == ; true; {set; unavail; {get;unavail}D}}
 {if; {get; needE}; == ; true; {set; unavail; {get;unavail}E}}
 {if; {get; needF}; == ; true; {set; unavail; {get;unavail}F}}
+{if; {get; unavail}; == ; 0; {set; pingtext; {get; pingtext} {role.mention; Head of {get;subject2}} {role.mention; {get; subject2} Helper} {role.mention; {get; subject2} GCSE Helper}}}
 STAGE 4
 {if; {replace; {get; unavail}; .*?A.*$;A}; == ; A;
 {if; {replace; {get; unavail}; .*?D.*$D}; == ; D;
@@ -99,6 +99,7 @@ WARNING: The role "{get; subject2} GCSE Helper" does not exist}};
 {if; {get; avail}; == ; no; {user.mention} Unfortunately there are no helper roles available for this channel
 
 >>>{get; porterver}<<<}
+{channel.send; {get; logtext}; #atlas-log}
 {set; invokerchannelid; {channel.id}}
 {set; invokermessageid; {message.id}}
 {channel.send; {user.tag} called for {get;subject2} help in {channel.mention; {get; invokerchannelid}} ({channel.name; {get; invokerchannelid}})
