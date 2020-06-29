@@ -3,7 +3,7 @@
 {set; arg1; {replace; {get; exAdd}; .*?,;}} {set; arg2; {replace; {get; exAdd}; ,.*$;}}
 {if; {replace; {get; arg2}; Head.*$; Head}; == ; Head; {perset; helperExceptions; £{get;arg1}< {get;arg2}& {perget; helperExceptions}}; {perset; helperExceptions; {perget; helperExceptions} £{get;arg1}< {get;arg2}&}} Swapped {get; arg2} with {get; arg1};
 {if; {replace; {message.content}; -helper .*$; -helper}; == ; -helper;
-{set; porterver; Powered by YinYang's Porter Atlas Project version 6.0.0ALPHA4}
+{set; porterver; Powered by YinYang's Porter Atlas Project version 6.0.0ALPHA5}
 {set; success; a helper will be available shortly.}
 {set; name; {channel.name}}
 {set; subject; {replace; {get; name}; gcse-;}} {set; subject; {replace; {get; subject}; a-level-}}
@@ -28,8 +28,8 @@
 {if; {find; {lower; {get; hxAsIs}}; {get; subject}}; == ; {get; subject};
 {set; genericex; {replace; {get; hxAsIs}; {get; subject} Helper.*$;}} {set; hxAsIs; {replace; {get; hxAsIs}; {get; genericex} {get; subject} Helper;}}
 {set; genericex; {replace; {get; genericex}; .?£;}} {set; genericex; {replace; {get; genericex};<;}} {set; genericex; {replace; {get; genericex};&;}}
-{if; {role.mention; {get; genericex}}; == ; {l}role.mention-ERROR1-no-role-matching-your-search{r}; {set; needE; false} {channel.send; Replacement Generic Helper role "{get; genericex}" does not exist; #atlas-log}; {set; needE; true}}}
-{if; {lower; {role.name; {role.mention; {get; genericex}}}}; == ; {lower; {get; genericex}};; {set; needE; false} {channel.send; Replacement Generic Helper role "{get; genericex}" does not exist; #atlas-log}}}
+{if; {role.mention; {get; genericex}}; == ; {l}role.mention-ERROR1-no-role-matching-your-search{r}; {set; needE; false} {channel.send; Replacement Generic Helper role "{get; genericex}" does not exist; #atlas-log}; {set; needE; true}}
+{if; {lower; {role.name; {role.mention; {get; genericex}}}}; == ; {lower; {get; genericex}};; {set; needE; false} {channel.send; Replacement Generic Helper role "{get; genericex}" does not exist; #atlas-log}}}}
 {set; GPING; 0} {if; {get;type}; == ; GCSE; {set; GPING; 1}}
 {if; {role.mention; {get; subject} GCSE Helper}; == ; {l}role.mention-ERROR1-no-role-matching-your-search{r}; {set; GPING; {get; GPING}C};
 {if; {lower; {find; {role.name; {role.mention; {get; subject} GCSE Helper}}; {get; subject}}}; == ; {get;subject};; {set; GPING; {get; GPING}C}}}
