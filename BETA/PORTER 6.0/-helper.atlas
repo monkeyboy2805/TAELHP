@@ -3,9 +3,10 @@
 {set; arg1; {replace; {get; exAdd}; .*?,;}} {set; arg2; {replace; {get; exAdd}; ,.*$;}}
 {if; {replace; {get; arg2}; Head.*$; Head}; == ; Head; {perset; helperExceptions; £{get;arg1}< {get;arg2}& {perget; helperExceptions}}; {perset; helperExceptions; {perget; helperExceptions} £{get;arg1}< {get;arg2}&}} Swapped {get; arg2} with {get; arg1};
 {if; {replace; {message.content}; -helper .*$; -helper}; == ; -helper;
-{set; porterver; Powered by YinYang's Porter Atlas Project version 6.0.0ALPHA7}
+{set; porterver; Powered by YinYang's Porter Atlas Project version 6.1.0ALPHA1}
 {set; success; a helper will be available shortly.}
 {set; name; {channel.name}}
+{set; name; {replace; {get; name};📗;}}
 {set; subject; {replace; {get; name}; gcse-;}} {set; subject; {replace; {get; subject}; a-level-}}
 {set; pingtext;} {set; logtext;}
 {set; avail; true} {set; needD; false} {set; needE; false} {set; needF; false}
