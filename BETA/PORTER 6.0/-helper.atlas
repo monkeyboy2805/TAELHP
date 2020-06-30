@@ -3,7 +3,7 @@
 {set; arg1; {replace; {get; exAdd}; .*?,;}} {set; arg2; {replace; {get; exAdd}; ,.*$;}}
 {if; {replace; {get; arg2}; Head.*$; Head}; == ; Head; {perset; helperExceptions; £{get;arg1}< {get;arg2}& {perget; helperExceptions}}; {perset; helperExceptions; {perget; helperExceptions} £{get;arg1}< {get;arg2}&}} Swapped {get; arg2} with {get; arg1};
 {if; {replace; {message.content}; -helper .*$; -helper}; == ; -helper;
-{set; porterver; Powered by YinYang's Porter Atlas Project version 6.0.0ALPHA6}
+{set; porterver; Powered by YinYang's Porter Atlas Project version 6.0.0ALPHA7}
 {set; success; a helper will be available shortly.}
 {set; name; {channel.name}}
 {set; subject; {replace; {get; name}; gcse-;}} {set; subject; {replace; {get; subject}; a-level-}}
@@ -58,7 +58,7 @@ WARNING: The role "{get; subject} Helper" does not exist}};
 {set; pingtext; {get; pingtext} {role.mention; {get; gcsex}}};
 {set; logtext; {get; logtext}
 WARNING: The role "{get; subject} GCSE Helper" does not exist}};
-{set; pingtext; {get; pingtext} {role.mention; {get; subject} GCSE Helper}}}
+{if; {get; GPING}; == ; 1; {set; pingtext; {get; pingtext} {role.mention; {get; subject} GCSE Helper}}}}
 {if; {get; unavail}; == ; 0ABC; {set; avail; false}}
 {if; {get; unavail}; == ; 1AB; {set; avail; false}}
 {if; {get; avail}; == ; true; {get;pingtext} 
