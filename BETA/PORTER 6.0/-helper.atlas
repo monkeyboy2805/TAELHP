@@ -4,7 +4,7 @@
 {if; {replace; {get; arg2}; Head.*$; Head}; == ; Head; {perset; helperExceptions; £{get;arg1}< {get;arg2}& {perget; helperExceptions}}; {perset; helperExceptions; {perget; helperExceptions} £{get;arg1}< {get;arg2}&}} Swapped {get; arg2} with {get; arg1};
 {if; {replace; {message.content}; -helper .*$; -helper}; == ; -helper;
 {set; porterver; Powered by YinYang's Porter Atlas Project version 6.1.0ALPHA3}
-{set; success; a helper will be avbailable shortly.}
+{set; success; a helper will be available shortly.}
 {lower; {set; name; {channel.name}}}
 {set; subject; {replace; {get; name}; gcse-;}} {set; subject; {replace; {get; subject}; a-level-}}
 {set; subject; {replace; {get; subject};-;A}}
