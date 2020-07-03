@@ -3,7 +3,7 @@
 {set; arg1; {replace; {get; exAdd}; .*?,;}} {set; arg2; {replace; {get; exAdd}; ,.*$;}}
 {if; {replace; {get; arg2}; Head.*$; Head}; == ; Head; {perset; helperExceptions; £{get;arg1}< {get;arg2}& {perget; helperExceptions}}; {perset; helperExceptions; {perget; helperExceptions} £{get;arg1}< {get;arg2}&}} Swapped {get; arg2} with {get; arg1};
 {if; {replace; {message.content}; -helper2 .*$; -helper2}; == ; -helper2;
-{set; porterver; Powered by YinYang's Porter Atlas Project version 6.1.0ALPHA4}
+{set; porterver; Powered by YinYang's Porter Atlas Project version 6.1.0ALPHA5}
 {set; success; a helper will be available shortly.}
 {lower; {set; name; {channel.name}}}
 {set; subject; {replace; {get; name}; gcse-;}} {set; subject; {replace; {get; subject}; a-level-}}
@@ -19,8 +19,8 @@
 {if; {replace; {channel.name}; {replace; {channel.name}; .*?gcse-;}}; == ; gcse-; {set; type; GCSE}}
 {if; {replace; {channel.name}; {replace; {channel.name}; .*?a-level-;}}; == ; a-level-; {set; type; A-level}}
 {if; {find; {get; subject};-};==;-; {set; subject; {replace; {get; subject}; -.*$} {replace; {get; subject}; .*?-}}}
-{if; {get;type}; == ; GCSE; {set; unavail; 0}}
-{if; {get;type}; == ; A-level; {set; unavail; 1}}
+{if; {get;type}; == ; GCSE; {set; unavail; 0}; {if; {get;type}; == ; A-level; {set; unavail; 1}; {set; unavail; 2}}}
+{if; {get; unavail}; !=; 2;
 {if; {role.mention; Head of {get; subject}}; == ; {l}role.mention-ERROR1-no-role-matching-your-search{r}; {set; unavail; {get; unavail}A};
 {if; {lower; {find; {role.name; {role.mention; Head of {get; subject}}}; {get; subject}}}; == ; {get;subject};; {set; unavail; {get; unavail}A}}}
 {set; hxAsIs; {lower; {get; hxAsIs}}}
@@ -71,7 +71,7 @@ WARNING: The role "{get; subject} Helper" does not exist}};
 WARNING: The role "{get; subject} GCSE Helper" does not exist}};
 {if; {get; GPING}; == ; 1; {set; pingtext; {get; pingtext} {role.mention; {get; subject} GCSE Helper}}}}
 {if; {get; unavail}; == ; 0ABC; {if; {get;needD}; == ; false; {if; {get;needE}; == ; false; {if; {get; needF}; == ; false; {set; avail; false}}}}}
-{if; {get; unavail}; == ; 1AB; {if; {get; needD}; == ; false; {if; {get; needE}; == ; false; {set; avail; false}}}}
+{if; {get; unavail}; == ; 1AB; {if; {get; needD}; == ; false; {if; {get; needE}; == ; false; {set; avail; false}}}}; {set; avail; false}}
 {if; {get; avail}; == ; true; {get;pingtext} 
 {user.mention} {get; success}
 
