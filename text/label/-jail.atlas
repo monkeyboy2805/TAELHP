@@ -73,11 +73,19 @@
 {user.removerole; Server Elitist; {args}}
 {user.removerole; Memes; {args}}
 {user.removerole; PC Talk; {args}}
-{user.removerole; QOTD; {args}}
+{user.removerole; General QOTD; {args}}
+{user.removerole; Biology QOTD; {args}}
+{user.removerole; Chemistry QOTD; {args}}
+{user.removerole; Physics QOTD; {args}}
+{user.removerole; Maths QOTD; {args}}
+{user.removerole; Computer Science QOTD; {args}}
 {user.removerole; FOTD; {args}}
+{user.removerole; First Join!; {args}}
+{user.removerole; Partner; {args}}
 {user.removerole; Deals and Discounts; {args}}
 {user.removerole; Debate; {args}}
 {user.removerole; Politics; {args}}
+{user.removerole; Weeaboo; {args}}
 {user.addrole; No Roles; {args}}
 {set; endtime; {math; ({replace; {replace; {replace; {replace; {utils.time; true}; {utils.time; false},;}; PM;}; AM;}; :.*$;} * 60) + {replace; {replace; {replace; {replace; {utils.time; true}; {utils.time; false},;}; PM;}; AM;}; .*?:;}}}
 {set; timetaken; {math; {get; endtime} - {get; starttime}}}
