@@ -22,8 +22,8 @@
     {
       "fallback": true,
       "type": "channel",
-      "message": "{user.removerole; Revising}\nYour roles have been updated",
-      "id": "5ee888c7ea2c3e0026eba535"
+      "message": "{if; {replace; {lower; {message.content}}; finished revising.*$; finished revising}; == ; finished revising;\n{if; {find; {user.roles}; {role.id; Revising}}; == ; {role.id; Revising};\n{user.removerole; Revising} You have exited revision mode! Hope you got something useful done!; You aren't in revision mode! Type \"need to revise\" to enter revision mode.}}",
+      "id": "5eee0811a52578002654507e"
     }
   ],
   "formatVersion": "1.2"

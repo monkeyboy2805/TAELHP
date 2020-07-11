@@ -1,2 +1,4 @@
+{if; {replace; {lower; {message.content}}; need to revise.*$; need to revise}; == ; need to revise;
+{if; {find; {user.roles}; {role.id; Revising}}; == ; {role.id; Revising}; You are already in revision mode! Type "finished revising" to exit revision mode.;
 {user.addrole; Revising}
-Your roles have been updated
+You have entered revision mode! Type "finished revising" to exit revision mode}}

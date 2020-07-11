@@ -22,8 +22,8 @@
     {
       "fallback": true,
       "type": "channel",
-      "message": "{user.addrole; Revising}\nYour roles have been updated",
-      "id": "5ee630a3ea2c3e0026eb4cbe"
+      "message": "{if; {replace; {lower; {message.content}}; need to revise.*$; need to revise}; == ; need to revise;\n{if; {find; {user.roles}; {role.id; Revising}}; == ; {role.id; Revising}; You are already in revision mode! Type \"finished revising\" to exit revision mode.;\n{user.addrole; Revising}\nYou have entered revision mode! Type \"finished revising\" to exit revision mode}}",
+      "id": "5eee0809a52578002654507d"
     }
   ],
   "formatVersion": "1.2"
