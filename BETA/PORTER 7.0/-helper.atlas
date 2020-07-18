@@ -3,7 +3,7 @@
 {set; arg1; {replace; {get; exAdd}; .*?,;}} {set; arg2; {replace; {get; exAdd}; ,.*$;}}
 {if; {replace; {get; arg2}; Head.*$; Head}; == ; Head; {perset; helperExceptions; £{get;arg1}< {get;arg2}& {perget; helperExceptions}}; {perset; helperExceptions; {perget; helperExceptions} £{get;arg1}< {get;arg2}&}} Swapped {get; arg2} with {get; arg1};
 {if; {replace; {message.content}; -helper .*$; -helper}; == ; -helper;
-{set; porterver; Powered by YinYang's Porter Atlas Project version 7.0.0ALPHA3}
+{set; porterver; Powered by YinYang's Porter Atlas Project version 7.0.0BETA1}
 {set; success; The helpers for this subject have been notified!}
 {lower; {set; name; {channel.name}}}
 {set; subject; {replace; {get; name}; gcse-;}} {set; subject; {replace; {get; subject}; a-level-}}
@@ -77,8 +77,8 @@ WARNING: The role "{get; subject} GCSE Helper" does not exist}};
 {set; pingtext; {get; pingtext} {role.mention; {get; subject} GCSE Helper}}}}
 {if; {get; unavail}; == ; 0ABC; {if; {get;needD}; == ; false; {if; {get;needE}; == ; false; {if; {get; needF}; == ; false; {set; avail; false}}}}}
 {if; {get; unavail}; == ; 1AB; {if; {get; needD}; == ; false; {if; {get; needE}; == ; false; {set; avail; false}}}}; {set; avail; false}}
-{if; {get; avail}; == ; true; {get;pingtext} {a!ae;--title="Subject Help";--color="#83ff00";--footer="{get; porterver}";--timestamp="true";--description="{get; success}\nNumber of Helpers Available (according to Atlas): {get; numHelpers}"}}
-{if; {get; avail}; == ; false; {a!ae;--title="Subject Help";--color="#ff0000";--footer="{get; porterver}";--timestamp="true";--description="Unfortunately there are no helper roles available for this channel :/"}}
+{if; {get; avail}; == ; true; {if; {get; numHelpers}; == ; 0; {set; numHelpers; {get; numHelpers} \n(please note that there *are* roles available, there is just no-one currently available. If you don't get a response, maybe try again later :)}}{get;pingtext} {a!ae;--title="Subject Help";--color="#83ff00";--footer="{get; porterver}";--timestamp="true";--description="{get; success}\nNumber of Helpers Available (according to Atlas): {get; numHelpers}"}}
+{if; {get; avail}; == ; false; {a!ae;--title="Subject Help";--color="#ff0000";--footer="{get; porterver}";--timestamp="true";--description="Unfortunately there are no helper roles available for this channel :/\n\nPlease note that this command is intended only for *subject* help."}}
 {channel.send; {get; logtext}; #atlas-log}
 {set; invokerchannelid; {channel.id}} {set; invokermessageid; {message.id}}
 {channel.send; {user.tag} called for {get;subject} help in {channel.mention; {get; invokerchannelid}} ({channel.name; {get; invokerchannelid}})
