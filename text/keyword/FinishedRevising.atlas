@@ -1,3 +1,0 @@
-{if; {replace; {lower; {message.content}}; finished revising.*$; finished revising}; == ; finished revising;
-{if; {find; {user.roles}; {role.id; Revising}}; == ; {role.id; Revising};
-{user.removerole; Revising} You have exited revision mode! Hope you got something useful done!; You aren't in revision mode! Type "need to revise" to enter revision mode.}}

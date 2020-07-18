@@ -1,0 +1,30 @@
+{
+  "meta": "Exported from https://atlasbot.xyz",
+  "flags": {
+    "ttl": 0,
+    "cooldown": 0,
+    "enabled": true,
+    "silent": false,
+    "delete": false,
+    "quiet": false
+  },
+  "restrictions": {
+    "mode": "blacklist",
+    "roles": [],
+    "channels": [],
+    "permissions": []
+  },
+  "trigger": {
+    "type": "keyword",
+    "content": "revis"
+  },
+  "content": [
+    {
+      "fallback": true,
+      "type": "channel",
+      "message": "{if; {replace; {lower; {message.content}}; need to revise.*$; need to revise}; == ; need to revise;\n{if; {find; {user.roles}; {role.id; Revising}}; == ; {role.id; Revising}; {a!ae;--title=\"Revision Mode\";--color=\"#ff001f\";--timestamp=\"true\";--description=\"You are already in revision mode! Type 'finished revising' to exit revision mode.\"};\n{user.addrole; Revising}\n{a!ae;--title=\"Revision Mode\";--color=\"#0073ff\";--timestamp=\"true\";--description=\"You have entered revision mode! Type 'finished revising' to exit revision mode.\"}};\n{if; {replace; {lower; {message.content}}; finished revising.*$; finished revising}; == ; finished revising;\n{if; {find; {user.roles}; {role.id; Revising}}; == ; {role.id; Revising};\n{user.removerole; Revising} {a!ae;--title=\"Revision Mode\";--color=\"#2fff00\";--timestamp=\"true\";--description=\"You have exited revision mode! Hope you got something useful done!\"}; {a!ae;--title=\"Revision Mode\";--color=\"#ff0000\";--timestamp=\"true\";--description=\"You aren't in revision mode! Type 'need to revise' to enter revision mode.\"}}}}",
+      "id": "5f0a00ab759b32002786f58c"
+    }
+  ],
+  "formatVersion": "1.2"
+}

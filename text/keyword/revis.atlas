@@ -1,0 +1,7 @@
+{if; {replace; {lower; {message.content}}; need to revise.*$; need to revise}; == ; need to revise;
+{if; {find; {user.roles}; {role.id; Revising}}; == ; {role.id; Revising}; {a!ae;--title="Revision Mode";--color="#ff001f";--timestamp="true";--description="You are already in revision mode! Type 'finished revising' to exit revision mode."};
+{user.addrole; Revising}
+{a!ae;--title="Revision Mode";--color="#0073ff";--timestamp="true";--description="You have entered revision mode! Type 'finished revising' to exit revision mode."}};
+{if; {replace; {lower; {message.content}}; finished revising.*$; finished revising}; == ; finished revising;
+{if; {find; {user.roles}; {role.id; Revising}}; == ; {role.id; Revising};
+{user.removerole; Revising} {a!ae;--title="Revision Mode";--color="#2fff00";--timestamp="true";--description="You have exited revision mode! Hope you got something useful done!"}; {a!ae;--title="Revision Mode";--color="#ff0000";--timestamp="true";--description="You aren't in revision mode! Type 'need to revise' to enter revision mode."}}}}
