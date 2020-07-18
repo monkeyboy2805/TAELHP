@@ -1,0 +1,32 @@
+{
+  "meta": "Exported from https://atlasbot.xyz",
+  "flags": {
+    "ttl": 0,
+    "cooldown": 0,
+    "enabled": true,
+    "silent": false,
+    "delete": false,
+    "quiet": false
+  },
+  "restrictions": {
+    "mode": "blacklist",
+    "roles": [],
+    "channels": [],
+    "permissions": [
+      "manageMessages"
+    ]
+  },
+  "trigger": {
+    "type": "label",
+    "content": "unmute"
+  },
+  "content": [
+    {
+      "fallback": true,
+      "type": "channel",
+      "message": "{if; {find; {user.roles; {args; 1}}; {role.id; Muted}}; == ; {role.id; Muted}; {user.removerole; Muted; {user.mention; {args; 1}}}\n{set; reason; {args; 2; infinity}}\n{if; {get; reason}; == ;; {set; reason; None specified}}\n{a!ae;--timestamp=\"true\";--description=\"{user.mention; {args; 1}} has been unmuted\"} {channel.send; {a!ae;--title=\"__**Unmute**__\";--color=\"#a3ff00\";--timestamp=\"true\";--description=\"**User**: {user.tag; {args; 1}}\\n\\n**Moderator**: {user.tag}\\n\\n**Reason**: {get; reason}\\n\\n**Issued**: {utils.time} UTC\"}; {settings;plugins.moderation.logs.mod}}; User is not muted!}",
+      "id": "5f134676759b320027880ac0"
+    }
+  ],
+  "formatVersion": "1.2"
+}
