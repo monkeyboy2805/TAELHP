@@ -3,12 +3,13 @@
 {set; arg1; {replace; {get; exAdd}; .*?,;}} {set; arg2; {replace; {get; exAdd}; ,.*$;}}
 {if; {replace; {get; arg2}; Head.*$; Head}; == ; Head; {perset; helperExceptions; £{get;arg1}< {get;arg2}& {perget; helperExceptions}}; {perset; helperExceptions; {perget; helperExceptions} £{get;arg1}< {get;arg2}&}} Swapped {get; arg2} with {get; arg1};
 {if; {replace; {message.content}; -helper .*$; -helper}; == ; -helper;
-{set; porterver; Powered by YinYang's Porter Atlas Project version 7.0.0ALPHA2}
-{set; success; A helper will be available shortly.}
+{set; porterver; Powered by YinYang's Porter Atlas Project version 7.0.0ALPHA3}
+{set; success; The helpers for this subject have been notified!}
 {lower; {set; name; {channel.name}}}
 {set; subject; {replace; {get; name}; gcse-;}} {set; subject; {replace; {get; subject}; a-level-}}
 {set; subject; {replace; {get; subject};-;A}}
 {set; subject; {find; {get; subject}; ^([a-zA-Z0-9]+)}}
+{set; numHelpers; 0}
 {if; {find; {get;subject};A}; == ; A;
 {set; firsthalf; {replace; {get; subject}; A.*$}}
 {set; secondhalf; {replace; {replace; {get; subject}; (?<!A.*)A}; {get; firsthalf};}}
@@ -54,37 +55,30 @@
 {if; {get; needD}; == ; true; {set; unavail; {get;unavail}D}} {if; {get; needE}; == ; true; {set; unavail; {get;unavail}E}} {if; {get; needF}; == ; true; {set; unavail; {get;unavail}F}}
 {if; {replace; {get; unavail}; .*?A.*$;A}; == ; A;
 {if; {get; needD}; == ; true;
-{set; pingtext; {get; pingtext} {role.mention; {get; headex}}};
+{set; numHelpers; {math; {get; numHelpers} + {role.memberCount; {get; headex}}}}{set; pingtext; {get; pingtext} {role.mention; {get; headex}}};
 {set; logtext; {get; logtext}
 WARNING: The role "Head of {get; subject}" does not exist}};
-{set; pingtext; {get; pingtext} {role.mention; Head of {get; subject}}}}
+{set; numHelpers; {math; {get; numHelpers} + {role.memberCount; Head of {get; subject}}}} {set; pingtext; {get; pingtext} {role.mention; Head of {get; subject}}}}
 {if; {replace; {get; unavail}; .*?B.*$; B}; == ; B;
 {if; {get; needE}; == ; true;
-{set; pingtext; {get; pingtext} {role.mention; {get; genericexex}}};
+{set; numHelpers; {math; {get; numHelpers} + {role.memberCount; {get; genericex}}}} {set; pingtext; {get; pingtext} {role.mention; {get; genericexex}}};
 {set; logtext; {get; logtext}
 WARNING: The role "{get; subject} Helper" does not exist}};
+{set; numHelpers; {math; {get; numHelpers} + {role.memberCount; {get; subject} Helper}}}
 {set; pingtext; {get; pingtext} {role.mention; {get; subject} Helper}}}
 {if; {replace; {get; unavail}; .*?C.*$;C}; == ; C;
 {if; {get; needF}; == ; true;
-{set; pingtext; {get; pingtext} {role.mention; {get; gcsex}}};
+{set; numHelpers; {math; {get; numHelpers} + {role.memberCount; {get; gcseex}}}}
+{set; pingtext; {get; pingtext} {role.mention; {get; gcseex}}};
 {set; logtext; {get; logtext}
 WARNING: The role "{get; subject} GCSE Helper" does not exist}};
-{if; {get; GPING}; == ; 1; {set; pingtext; {get; pingtext} {role.mention; {get; subject} GCSE Helper}}}}
+{if; {get; GPING}; == ; 1; 
+{set; numHelpers; {math; {get; numHelpers} + {role.memberCount; {get; subject} GCSE Helper}}}
+{set; pingtext; {get; pingtext} {role.mention; {get; subject} GCSE Helper}}}}
 {if; {get; unavail}; == ; 0ABC; {if; {get;needD}; == ; false; {if; {get;needE}; == ; false; {if; {get; needF}; == ; false; {set; avail; false}}}}}
 {if; {get; unavail}; == ; 1AB; {if; {get; needD}; == ; false; {if; {get; needE}; == ; false; {set; avail; false}}}}; {set; avail; false}}
-{if; {get; avail}; == ; true; {get;pingtext} {a!ae;--title="Subject Help";--color="#83ff00";--footer="{get; porterver}";--timestamp="true";--description="{get; success}"}}
+{if; {get; avail}; == ; true; {get;pingtext} {a!ae;--title="Subject Help";--color="#83ff00";--footer="{get; porterver}";--timestamp="true";--description="{get; success}\nNumber of Helpers Available (according to Atlas): {get; numHelpers}"}}
 {if; {get; avail}; == ; false; {a!ae;--title="Subject Help";--color="#ff0000";--footer="{get; porterver}";--timestamp="true";--description="Unfortunately there are no helper roles available for this channel :/"}}
-{channel.send; {get; logtext}; #atlas-log}
-{set; invokerchannelid; {channel.id}} {set; invokermessageid; {message.id}}
-{channel.send; {user.tag} called for {get;subject} help in {channel.mention; {get; invokerchannelid}} ({channel.name; {get; invokerchannelid}})
-https://discord.com/channels/{guild.id}/{get; invokerchannelid}/{get; invokermessageid}; atlas-log}}}false}}}}; {set; avail; false}}
-{if; {get; avail}; == ; true; {get;pingtext} 
-{user.mention} {get; success}
-
->>>{get; porterver}<<<}
-{if; {get; avail}; == ; false; {user.mention} Unfortunately there are no helper roles available for this channel
-
->>>{get; porterver}<<<}
 {channel.send; {get; logtext}; #atlas-log}
 {set; invokerchannelid; {channel.id}} {set; invokermessageid; {message.id}}
 {channel.send; {user.tag} called for {get;subject} help in {channel.mention; {get; invokerchannelid}} ({channel.name; {get; invokerchannelid}})
